@@ -2,14 +2,51 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net8.0-windows</TargetFramework>
+    <TargetFramework>net8.0-windows10.0.26100.0</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
     <Platforms>AnyCPU;x64</Platforms>
+    <SupportedOSPlatformVersion>10.0.17763.0</SupportedOSPlatformVersion>
+    <ApplicationIcon>135139788_p3.ico</ApplicationIcon>
+    <Title>TestApp</Title>
+    <Description>このソフトはただ趣味で作ったものである。
+This software is built because coding is one of my hobbies.</Description>
+    <AssemblyVersion>3.0.99.4</AssemblyVersion>
+    <FileVersion>3.0.99.4</FileVersion>
+    <PackageIcon>135139788_p3.jpg</PackageIcon>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <Optimize>False</Optimize>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Optimize>False</Optimize>
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Include="135139788_p3.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\..\..\Pictures\プロフ画像用切り抜き\135139788_p3.jpg">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="HolidayJp" Version="1.0.0" />
+    <PackageReference Include="ini-parser" Version="2.5.2" />
+    <PackageReference Include="JpPublicHolidays" Version="2.7.0" />
+    <PackageReference Include="Json.Net" Version="1.0.33" />
+    <PackageReference Include="Mamemaki.HolidayJp" Version="1.0.4" />
+    <PackageReference Include="Markdig" Version="1.1.2" />
+    <PackageReference Include="Markdig.Wpf" Version="0.5.0.1" />
+    <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.3856.49" />
+    <PackageReference Include="NAudio" Version="2.3.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
     <PackageReference Include="pythonnet" Version="3.0.5" />
     <PackageReference Include="pythonnet_netstandard_py39_win" Version="2.5.2" />
   </ItemGroup>

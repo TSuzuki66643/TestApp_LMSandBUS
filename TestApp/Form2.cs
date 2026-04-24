@@ -49,19 +49,30 @@ namespace TestApp
         //private IniParser.Model.IniData data = new IniParser.Model.IniData();
         private void StartAudio(int number, bool stop)
         {
-            if (!stop) 
+            if(!stop)
             {
-                if (!stop)
+                push[0] = new AudioFileReader("push0.mp3");
+                push[1] = new AudioFileReader("push1.mp3");
+                push[2] = new AudioFileReader("push2.mp3");
+                var outputDevice = new WaveOutEvent();
+                outputDevice.Init(push[number]);
+                switch (number)
                 {
-                    push[0] = new AudioFileReader("push0.mp3");
-                    push[1] = new AudioFileReader("push1.mp3");
-                    push[2] = new AudioFileReader("push2.mp3");
-                    var outputDevice = new WaveOutEvent();
-                    outputDevice.Init(push[number]);
-                    outputDevice.Play();
+                    case 1:
+
+                        outputDevice.Volume = (float)0.25;
+                        outputDevice.Play();
+                        break;
+                    default:
+                        outputDevice.Volume = (float)0.25;
+                        outputDevice.Play();
+                        break;
+
                 }
+                
             }
         }
+
         private void button1_Click(object sender, EventArgs e)
         {
             StartAudio(2, false);

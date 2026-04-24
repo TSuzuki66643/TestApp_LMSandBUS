@@ -55,6 +55,14 @@ namespace TestApp
             tabControl1.SelectedIndex = StartPage;
 
             //Background操作起動処理
+
+            BrowserPath = "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe";
+            if (data["Browser"]["BrowserPath"] != null) 
+            {
+                BrowserPath = data["Browser"]["BrowserPath"];
+            }
+            textBox1.Text = BrowserPath;
+
             await webView21.EnsureCoreWebView2Async();
             Action act = BackgroundTask;
             Task task = new Task(act);
@@ -120,6 +128,8 @@ namespace TestApp
 
         public AudioFileReader[] push = new AudioFileReader[3];
         public bool stop = true;
+
+        public string BrowserPath;
         /*
         public void DrawGraph()
         {
@@ -485,9 +495,9 @@ namespace TestApp
         public static int DebugCode = 0;
         public static int IsReaded = 0;
         public static int[] IsAlreadyLocked = new int[4];
-        public bool IsDebugMode = false;
+        public int DebugMode = 0; //シミュモード
         public int[] DefaultTime = new int[2];
-        public bool Canceled = false;
+        public int isCanceled = 0; //運転中止指令
         public void BackgroundTask()
         {
 
@@ -514,29 +524,39 @@ namespace TestApp
 
             int[,] SpringInterval = new int[2, 2] { { 2, 13 }, { 3, 31 } }; //なんでか使わなかった
 
+            var IsDebugMode = DebugMode;
+            var Canceled = isCanceled;
 
             for (int i = 0; i < 4; i++)
             {
                 DefaultTime[0] = DateTime.Now.Hour;
                 DefaultTime[1] = DateTime.Now.Minute;
-                if (IsDebugMode)
-                {
-                    DefaultTime[0] = 22;
-                    DefaultTime[1] = 00;
 
-                    nHour[0] = 18;
-                    nMinute[0] = 00;
-                    nHour[1] = 18;
-                    nMinute[1] = 00;
-                    nHour[2] = 18;
-                    nMinute[2] = 00;
-                    nHour[3] = 18;
-                    nMinute[3] = 00;
-                }
+
+
+                IsDebugMode = 0;
+
                 if (IsReaded == 0 || IsAlreadyLocked[i] == 0)
                 {
                     nHour[i] = DateTime.Now.Hour;
                     nMinute[i] = DateTime.Now.Minute;
+                }
+                if (IsDebugMode == 1)
+                {
+                    DefaultTime[0] = 24;
+                    DefaultTime[1] = 37;
+
+                    Canceled = 0;
+                    isHoliday = false;
+
+                    nHour[0] = 20;
+                    nMinute[0] = 32;
+                    nHour[1] = 21;
+                    nMinute[1] = 35;
+                    nHour[2] = 20;
+                    nMinute[2] = 00;
+                    nHour[3] = 16;
+                    nMinute[3] = 30;
                 }
             }
             int padding = 0;
@@ -612,10 +632,10 @@ namespace TestApp
                             int ignoredminutes = isHoliday ? 5 : 0;
                             if ((isIgnored && (Buslist[data].Details[i].Hour < 10 || (Buslist[data].Details[i].Hour == 10 && Buslist[data].Details[i].Minutes <= ignoredminutes)))
                                 || (Buslist[data].Details[i].isSkip == true && (nowMonth == 2 && nowDay >= 13 || nowMonth == 3))
-                                                                                                                                /*|| (j == 0 && data1_enable == 1)
-                                                                                                                                  || (j == 1 && data2_enable == 1)
-                                                                                                                                  || (j == 2 && data3_enable == 1)
-                                                                                                                                  || (j == 3 && data4_enable == 1)*/)
+                                                                                                                                      /*|| (j == 0 && data1_enable == 1)
+                                                                                                                                        || (j == 1 && data2_enable == 1)
+                                                                                                                                        || (j == 2 && data3_enable == 1)
+                                                                                                                                        || (j == 3 && data4_enable == 1)*/)
                             {
                                 //判定対象外。何もしない
                                 DebugCode = 4;
@@ -695,8 +715,13 @@ namespace TestApp
             label59.Text = "";
             label61.Text = "";
 
+            int dt = DefaultTime[0];
+            if (DefaultTime[0] >= 24)
+            {
+                dt -= 24;
+            }
             label74.Text = DefaultTime[1].ToString("00");
-            label75.Text = DefaultTime[0].ToString("00");
+            label75.Text = dt.ToString("00");
             //代入
 
             if (Hour[0, 0] != -1 && Minute[0, 0] != -1)
@@ -886,22 +911,30 @@ namespace TestApp
             }
 
             //label61.Text = LastInfo(data2);
-            if (!Canceled)
+            if (Canceled == 0)
             {
                 //最終ランプ判定・初期化
-                if ((label33.Text != "" || label34.Text != "") || label32.Text == "")
+                if (label32.Text == "")
+                    label77.Text = "終了";
+                else if ((label33.Text != "" || label34.Text != "") || label32.Text == "")
                     label77.Text = "";
                 else
                     label77.Text = "最終";
-                if ((label39.Text != "" || label40.Text != "") || label38.Text == "")
+                if (label38.Text == "")
+                    label78.Text = "終了";
+                else if ((label39.Text != "" || label40.Text != "") || label38.Text == "")
                     label78.Text = "";
                 else
                     label78.Text = "最終";
-                if ((label45.Text != "" || label46.Text != "") || label44.Text == "")
+                if (label44.Text == "")
+                    label79.Text = "終了";
+                else if ((label45.Text != "" || label46.Text != "") || label44.Text == "")
                     label79.Text = "";
                 else
                     label79.Text = "最終";
-                if ((label55.Text != "" || label56.Text != "") || label54.Text == "")
+                if (label54.Text == "")
+                    label80.Text = "終了";
+                else if ((label55.Text != "" || label56.Text != "") || label54.Text == "")
                     label80.Text = "";
                 else
                     label80.Text = "最終";
@@ -909,11 +942,11 @@ namespace TestApp
             DebugCode = 6;
             IsReaded = 1;
 
-            if (IsDebugMode)
+            if (IsDebugMode == 1)
             {
                 label61.Text = "シミュレーションモードが有効です。";
             }
-            if (Canceled)
+            if (Canceled == 1)
             {
                 label35.Text = "";
                 label36.Text = "";
@@ -1234,100 +1267,110 @@ namespace TestApp
 
         public void SetLMSData()
         {
-            SetLMSData(false);
+            SetLMSData(false, false);
+        }
+        public void SetLMSData(bool ExportIniOnly)
+        {
+            SetLMSData(false, ExportIniOnly);
         }
 
-        public void SetLMSData(bool setSkip)
+        public void SetLMSData(bool setSkip, bool ExportIniOnly)
         {
-            if (setSkip)
+            if (!ExportIniOnly)
             {
-                Trace.TraceInformation("Jsonファイルから読み込みのため、定義はスキップします。");
-            }
-            else if (IsLoadFailure == LoadingFailureIndicator.False)
-            {
-                //エラーで動作が止まる恐れがあるためtry-catchに
-                try
+                if (setSkip)
                 {
-                    //データ読み込み
-
-                    SetLMSDataFromFile();
+                    Trace.TraceInformation("Jsonファイルから読み込みのため、定義はスキップします。");
                 }
-                catch (Exception e)
+                else if (IsLoadFailure == LoadingFailureIndicator.False)
                 {
-                    //エラータイプ: ロード時のエラー
-                    IsLoadFailure = LoadingFailureIndicator.AutoTrue;
-                    Notified = true;
-                    MessageBox.Show("LMSデータ設定に失敗しました。内蔵データで置き換えます。\n" + e.ToString(), "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    //エラーで動作が止まる恐れがあるためtry-catchに
+                    try
+                    {
+                        //データ読み込み
 
+                        SetLMSDataFromFile();
+                    }
+                    catch (Exception e)
+                    {
+                        //エラータイプ: ロード時のエラー
+                        IsLoadFailure = LoadingFailureIndicator.AutoTrue;
+                        Notified = true;
+                        MessageBox.Show("LMSデータ設定に失敗しました。内蔵データで置き換えます。\n" + e.ToString(), "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                        SetLMSDataManually(IsLoadFailure);
+                    }
+                    if (IsLoadFailure == LoadingFailureIndicator.False && !Notified)
+                    {
+                        //成功時
+                        //Notified = true;
+                        //MessageBox.Show("LMSデータ設定を読み込みました。", "通知", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    }
+                }
+                else
+                {
+                    if (!Notified)
+                    {
+                        //エラータイプ: 設定により意図的に作用させている
+                        Notified = true;
+                        MessageBox.Show("LMSデータ設定を内蔵データで行います。", "通知", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    }
                     SetLMSDataManually(IsLoadFailure);
-                }
-                if (IsLoadFailure == LoadingFailureIndicator.False && !Notified)
-                {
-                    //成功時
-                    //Notified = true;
-                    //MessageBox.Show("LMSデータ設定を読み込みました。", "通知", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 }
+
+                Setinidata();
+
+                //反映部分
+                linkLabel1.Text = DataList[0, 0].Title;
+                linkLabel2.Text = DataList[0, 1].Title;
+                linkLabel3.Text = DataList[0, 2].Title;
+                linkLabel4.Text = DataList[0, 3].Title;
+                linkLabel5.Text = DataList[0, 4].Title;
+                linkLabel6.Text = DataList[0, 5].Title;
+                linkLabel7.Text = DataList[1, 0].Title;
+                linkLabel8.Text = DataList[1, 1].Title;
+                linkLabel9.Text = DataList[1, 2].Title;
+                linkLabel10.Text = DataList[1, 3].Title;
+                linkLabel11.Text = DataList[1, 4].Title;
+                linkLabel12.Text = DataList[1, 5].Title;
+                linkLabel13.Text = DataList[2, 0].Title;
+                linkLabel14.Text = DataList[2, 1].Title;
+                linkLabel15.Text = DataList[2, 2].Title;
+                linkLabel16.Text = DataList[2, 3].Title;
+                linkLabel17.Text = DataList[2, 4].Title;
+                linkLabel18.Text = DataList[2, 5].Title;
+                linkLabel19.Text = DataList[3, 0].Title;
+                linkLabel20.Text = DataList[3, 1].Title;
+                linkLabel21.Text = DataList[3, 2].Title;
+                linkLabel22.Text = DataList[3, 3].Title;
+                linkLabel23.Text = DataList[3, 4].Title;
+                linkLabel24.Text = DataList[3, 5].Title;
+                linkLabel25.Text = DataList[4, 0].Title;
+                linkLabel26.Text = DataList[4, 1].Title;
+                linkLabel27.Text = DataList[4, 2].Title;
+                linkLabel28.Text = DataList[4, 3].Title;
+                linkLabel29.Text = DataList[4, 4].Title;
+                linkLabel30.Text = DataList[4, 5].Title;
+                linkLabel31.Text = DataList[5, 0].Title;
+                linkLabel32.Text = DataList[5, 1].Title;
+                linkLabel33.Text = DataList[5, 2].Title;
+                linkLabel34.Text = DataList[5, 3].Title;
+                linkLabel35.Text = DataList[5, 4].Title;
+                linkLabel36.Text = DataList[5, 5].Title;
+                linkLabel37.Text = DataList[6, 0].Title;
+                linkLabel38.Text = DataList[6, 1].Title;
+                linkLabel39.Text = DataList[6, 2].Title;
+                linkLabel40.Text = DataList[6, 3].Title;
+                linkLabel41.Text = DataList[6, 4].Title;
+                linkLabel42.Text = DataList[6, 5].Title;
             }
-            else
+            else 
             {
-                if (!Notified)
-                {
-                    //エラータイプ: 設定により意図的に作用させている
-                    Notified = true;
-                    MessageBox.Show("LMSデータ設定を内蔵データで行います。", "通知", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                }
-                SetLMSDataManually(IsLoadFailure);
-
+                Trace.TraceInformation("定義処理はスキップします。");
             }
-
-            Setinidata();
-
-            //反映部分
-            linkLabel1.Text = DataList[0, 0].Title;
-            linkLabel2.Text = DataList[0, 1].Title;
-            linkLabel3.Text = DataList[0, 2].Title;
-            linkLabel4.Text = DataList[0, 3].Title;
-            linkLabel5.Text = DataList[0, 4].Title;
-            linkLabel6.Text = DataList[0, 5].Title;
-            linkLabel7.Text = DataList[1, 0].Title;
-            linkLabel8.Text = DataList[1, 1].Title;
-            linkLabel9.Text = DataList[1, 2].Title;
-            linkLabel10.Text = DataList[1, 3].Title;
-            linkLabel11.Text = DataList[1, 4].Title;
-            linkLabel12.Text = DataList[1, 5].Title;
-            linkLabel13.Text = DataList[2, 0].Title;
-            linkLabel14.Text = DataList[2, 1].Title;
-            linkLabel15.Text = DataList[2, 2].Title;
-            linkLabel16.Text = DataList[2, 3].Title;
-            linkLabel17.Text = DataList[2, 4].Title;
-            linkLabel18.Text = DataList[2, 5].Title;
-            linkLabel19.Text = DataList[3, 0].Title;
-            linkLabel20.Text = DataList[3, 1].Title;
-            linkLabel21.Text = DataList[3, 2].Title;
-            linkLabel22.Text = DataList[3, 3].Title;
-            linkLabel23.Text = DataList[3, 4].Title;
-            linkLabel24.Text = DataList[3, 5].Title;
-            linkLabel25.Text = DataList[4, 0].Title;
-            linkLabel26.Text = DataList[4, 1].Title;
-            linkLabel27.Text = DataList[4, 2].Title;
-            linkLabel28.Text = DataList[4, 3].Title;
-            linkLabel29.Text = DataList[4, 4].Title;
-            linkLabel30.Text = DataList[4, 5].Title;
-            linkLabel31.Text = DataList[5, 0].Title;
-            linkLabel32.Text = DataList[5, 1].Title;
-            linkLabel33.Text = DataList[5, 2].Title;
-            linkLabel34.Text = DataList[5, 3].Title;
-            linkLabel35.Text = DataList[5, 4].Title;
-            linkLabel36.Text = DataList[5, 5].Title;
-            linkLabel37.Text = DataList[6, 0].Title;
-            linkLabel38.Text = DataList[6, 1].Title;
-            linkLabel39.Text = DataList[6, 2].Title;
-            linkLabel40.Text = DataList[6, 3].Title;
-            linkLabel41.Text = DataList[6, 4].Title;
-            linkLabel42.Text = DataList[6, 5].Title;
-
             //Config.iniに書き込む準備
             IniParser.Model.IniData data = new IniParser.Model.IniData();
             if (Settings != null)
@@ -1438,6 +1481,8 @@ namespace TestApp
             data["Other"]["Link4"] = DataList[6, 3].URL;
             data["Other"]["Link5"] = DataList[6, 4].URL;
             data["Other"]["Link6"] = DataList[6, 5].URL;
+
+            data["Browser"]["BrowserPath"] = BrowserPath;
 
             Settings = data;
 
@@ -1794,7 +1839,7 @@ namespace TestApp
                         sr.Close();
                         stream.Close();
 
-                        SetLMSData(true);
+                        SetLMSData(true, false);
                     }
                     catch (Exception e)
                     {
@@ -1817,12 +1862,15 @@ namespace TestApp
         /// <param name="Time"></param>
         public void LinkExecute(int Weekday, int Time, MouseButtons Mouse)
         {
-            linkLabel1.LinkVisited = true;
+            StartAudio(2, false);
             if (DataList[Weekday, Time].URL != "-1" && Mouse == MouseButtons.Left)
             {
-                StartAudio(2, false);
-                System.Diagnostics.Process.Start("C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+                if (BrowserPath.Contains("Chrome"))
+                    System.Diagnostics.Process.Start(BrowserPath,
                     "--disable-features=ExtensionManifestV2Unsupported,ExtensionManifestV2Disabled " + DataList[Weekday, Time].URL);
+                else
+                    System.Diagnostics.Process.Start(BrowserPath,
+                                        DataList[Weekday, Time].URL);
                 returns = 1;
             }
             else
@@ -1834,8 +1882,48 @@ namespace TestApp
         }
         public void LinkExecute(string URL)
         {
-            System.Diagnostics.Process.Start("C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
-                    "--disable-features=ExtensionManifestV2Unsupported,ExtensionManifestV2Disabled " + URL);
+            if (BrowserPath.Contains("Chrome"))
+                System.Diagnostics.Process.Start(BrowserPath,
+                "--disable-features=ExtensionManifestV2Unsupported,ExtensionManifestV2Disabled " + URL);
+            else
+                System.Diagnostics.Process.Start(BrowserPath, URL);
+        }
+
+        /// <summary>
+        /// これを組み込むと、指定ファイル以外での実行ファイル実行を抑止できる。
+        /// 判定に引っかからない場合、InvalidOperationExceptionを投げる。
+        /// </summary>
+        public void AntiThreat(string Path)
+        {
+            //エラー防止もしくは脅威からの保護のため、実行ファイル名を定義。
+            string[] str = new string[7] {"msedge.exe", "chrome.exe", "firefox.exe","Brave.exe", "vivaldi.exe", "floorp.exe", "opera.exe" };
+            int count = 0;
+            for (int i = 0;i < 7; i++) 
+            {
+                if (!Path.Contains(str[i])) 
+                {
+                    count++;
+                }
+            }
+            if (count == 7) 
+            {
+                throw new InvalidOperationException("リストに存在しない実行ファイルです。");
+            }
+        }
+
+        public string SetBrowser()
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.FileName = "";
+            ofd.InitialDirectory = System.IO.Path.Combine("C:\\Program Files");
+            ofd.Filter = "実行ファイル|*.exe|すべて|*.*";
+            ofd.Title = "ファイルを選択";
+            string str = "";
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                str = ofd.FileName;
+            }
+            return str;
         }
 
         #endregion
@@ -2321,8 +2409,36 @@ namespace TestApp
                 push[2] = new AudioFileReader("push2.mp3");
                 var outputDevice = new WaveOutEvent();
                 outputDevice.Init(push[number]);
+                switch (number)
+                {
+                    case 1:
+                        outputDevice.Volume = (float)0.15;
+                        break;
+                    default:
+                        outputDevice.Volume = (float)1;
+                        break;
+
+                }
                 outputDevice.Play();
             }
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            StartAudio(2, false);
+            BrowserPath = textBox1.Text;
+            SetLMSData(true);
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            StartAudio(2, false);
+            textBox1.Text = SetBrowser();
         }
     }
 }

@@ -155,7 +155,7 @@
             // 
             comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "更新無効", "更新有効" });
+            comboBox1.Items.AddRange(new object[] { "更新有効", "更新停止" });
             comboBox1.Location = new Point(99, 85);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(107, 34);
@@ -194,7 +194,7 @@
             // 
             comboBox2.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBox2.FormattingEnabled = true;
-            comboBox2.Items.AddRange(new object[] { "更新無効", "更新有効" });
+            comboBox2.Items.AddRange(new object[] { "更新有効", "更新停止" });
             comboBox2.Location = new Point(99, 283);
             comboBox2.Name = "comboBox2";
             comboBox2.Size = new Size(107, 34);
@@ -205,7 +205,7 @@
             // 
             comboBox3.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBox3.FormattingEnabled = true;
-            comboBox3.Items.AddRange(new object[] { "更新無効", "更新有効" });
+            comboBox3.Items.AddRange(new object[] { "更新有効", "更新停止" });
             comboBox3.Location = new Point(99, 215);
             comboBox3.Name = "comboBox3";
             comboBox3.Size = new Size(107, 34);
@@ -216,7 +216,7 @@
             // 
             comboBox4.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBox4.FormattingEnabled = true;
-            comboBox4.Items.AddRange(new object[] { "更新無効", "更新有効" });
+            comboBox4.Items.AddRange(new object[] { "更新有効", "更新停止" });
             comboBox4.Location = new Point(99, 151);
             comboBox4.Name = "comboBox4";
             comboBox4.Size = new Size(107, 34);

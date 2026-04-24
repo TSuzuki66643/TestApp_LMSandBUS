@@ -89,6 +89,10 @@ namespace TestApp
             label69 = new Label();
             label70 = new Label();
             tabPage1 = new TabPage();
+            button5 = new Button();
+            button4 = new Button();
+            label15 = new Label();
+            textBox1 = new TextBox();
             button3 = new Button();
             button2 = new Button();
             button1 = new Button();
@@ -854,6 +858,10 @@ namespace TestApp
             // 
             // tabPage1
             // 
+            tabPage1.Controls.Add(button5);
+            tabPage1.Controls.Add(button4);
+            tabPage1.Controls.Add(label15);
+            tabPage1.Controls.Add(textBox1);
             tabPage1.Controls.Add(button3);
             tabPage1.Controls.Add(button2);
             tabPage1.Controls.Add(button1);
@@ -913,13 +921,50 @@ namespace TestApp
             tabPage1.Controls.Add(linkLabel2);
             tabPage1.Controls.Add(linkLabel1);
             tabPage1.Controls.Add(label1);
-            tabPage1.Location = new Point(4, 35);
+            tabPage1.Location = new Point(4, 34);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(1749, 678);
+            tabPage1.Size = new Size(1749, 679);
             tabPage1.TabIndex = 6;
             tabPage1.Text = "LMSジャンパー";
             tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // button5
+            // 
+            button5.Location = new Point(1283, 631);
+            button5.Name = "button5";
+            button5.Size = new Size(112, 34);
+            button5.TabIndex = 62;
+            button5.Text = "参照...";
+            button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click;
+            // 
+            // button4
+            // 
+            button4.Location = new Point(1165, 631);
+            button4.Name = "button4";
+            button4.Size = new Size(112, 34);
+            button4.TabIndex = 61;
+            button4.Text = "セット";
+            button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.Location = new Point(54, 634);
+            label15.Name = "label15";
+            label15.Size = new Size(138, 25);
+            label15.TabIndex = 60;
+            label15.Text = "ブラウザーバス";
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(209, 631);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(950, 34);
+            textBox1.TabIndex = 59;
+            textBox1.TextChanged += textBox1_TextChanged;
             // 
             // button3
             // 
@@ -1775,5 +1820,9 @@ namespace TestApp
         private ToolStripMenuItem シラバスを開く未実装ToolStripMenuItem;
         private ToolStripMenuItem 選択代行機能未実装ToolStripMenuItem;
         private ToolStripMenuItem 設定ToolStripMenuItem;
+        private Label label15;
+        private TextBox textBox1;
+        private Button button5;
+        private Button button4;
     }
 }

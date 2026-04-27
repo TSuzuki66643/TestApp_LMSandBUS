@@ -160,23 +160,43 @@ namespace TestApp
             linkLabel2 = new LinkLabel();
             linkLabel1 = new LinkLabel();
             label1 = new Label();
+            tabPage3 = new TabPage();
+            button11 = new Button();
+            button10 = new Button();
+            button9 = new Button();
+            label16 = new Label();
+            listBox1 = new ListBox();
+            tabPage4 = new TabPage();
+            button12 = new Button();
+            richTextBox1 = new RichTextBox();
             tabPage2 = new TabPage();
             webView21 = new Microsoft.Web.WebView2.WinForms.WebView2();
+            contextMenuStrip2 = new ContextMenuStrip(components);
+            ファイルを実行ToolStripMenuItem = new ToolStripMenuItem();
+            項目を削除ToolStripMenuItem = new ToolStripMenuItem();
             backgroundWorker1 = new BackgroundWorker();
+            numericUpDown1 = new NumericUpDown();
+            label17 = new Label();
             tabControl1.SuspendLayout();
             tabPage6.SuspendLayout();
             tabPage1.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox1.SuspendLayout();
             contextMenuStrip1.SuspendLayout();
+            tabPage3.SuspendLayout();
+            tabPage4.SuspendLayout();
             tabPage2.SuspendLayout();
             ((ISupportInitialize)webView21).BeginInit();
+            contextMenuStrip2.SuspendLayout();
+            ((ISupportInitialize)numericUpDown1).BeginInit();
             SuspendLayout();
             // 
             // tabControl1
             // 
             tabControl1.Controls.Add(tabPage6);
             tabControl1.Controls.Add(tabPage1);
+            tabControl1.Controls.Add(tabPage3);
+            tabControl1.Controls.Add(tabPage4);
             tabControl1.Controls.Add(tabPage2);
             tabControl1.Location = new Point(12, 12);
             tabControl1.Name = "tabControl1";
@@ -924,10 +944,10 @@ namespace TestApp
             tabPage1.Controls.Add(linkLabel2);
             tabPage1.Controls.Add(linkLabel1);
             tabPage1.Controls.Add(label1);
-            tabPage1.Location = new Point(4, 34);
+            tabPage1.Location = new Point(4, 35);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(1749, 679);
+            tabPage1.Size = new Size(1749, 678);
             tabPage1.TabIndex = 6;
             tabPage1.Text = "LMSジャンパー";
             tabPage1.UseVisualStyleBackColor = true;
@@ -1700,6 +1720,105 @@ namespace TestApp
             label1.TabIndex = 0;
             label1.Text = "LMSジャンパー: ここからLMSに飛べます";
             // 
+            // tabPage3
+            // 
+            tabPage3.Controls.Add(button11);
+            tabPage3.Controls.Add(button10);
+            tabPage3.Controls.Add(button9);
+            tabPage3.Controls.Add(label16);
+            tabPage3.Controls.Add(listBox1);
+            tabPage3.Location = new Point(4, 35);
+            tabPage3.Name = "tabPage3";
+            tabPage3.Padding = new Padding(3);
+            tabPage3.Size = new Size(1749, 678);
+            tabPage3.TabIndex = 8;
+            tabPage3.Text = "FileClipper";
+            tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // button11
+            // 
+            button11.Location = new Point(1502, 14);
+            button11.Name = "button11";
+            button11.Size = new Size(112, 34);
+            button11.TabIndex = 4;
+            button11.Text = "Remove";
+            button11.UseVisualStyleBackColor = true;
+            button11.Click += button11_Click;
+            // 
+            // button10
+            // 
+            button10.Location = new Point(1379, 14);
+            button10.Name = "button10";
+            button10.Size = new Size(112, 34);
+            button10.TabIndex = 3;
+            button10.Text = "Open";
+            button10.UseVisualStyleBackColor = true;
+            button10.Click += button10_Click;
+            // 
+            // button9
+            // 
+            button9.Location = new Point(1620, 14);
+            button9.Name = "button9";
+            button9.Size = new Size(112, 34);
+            button9.TabIndex = 2;
+            button9.Text = "Export";
+            button9.UseVisualStyleBackColor = true;
+            button9.Click += button9_Click;
+            // 
+            // label16
+            // 
+            label16.AutoSize = true;
+            label16.Location = new Point(15, 19);
+            label16.Name = "label16";
+            label16.Size = new Size(1164, 25);
+            label16.TabIndex = 1;
+            label16.Text = "枠内にファイルをドラッグアンドドロップして、ファイルを一時的に保管します。項目をダブルクリックすると、ファイルの場所を開きます。";
+            // 
+            // listBox1
+            // 
+            listBox1.AllowDrop = true;
+            listBox1.FormattingEnabled = true;
+            listBox1.ItemHeight = 25;
+            listBox1.Location = new Point(6, 59);
+            listBox1.Name = "listBox1";
+            listBox1.Size = new Size(1737, 629);
+            listBox1.TabIndex = 0;
+            listBox1.DragDrop += DragDrop;
+            listBox1.DragEnter += DragEnter;
+            listBox1.DoubleClick += doubleclick;
+            // 
+            // tabPage4
+            // 
+            tabPage4.Controls.Add(label17);
+            tabPage4.Controls.Add(numericUpDown1);
+            tabPage4.Controls.Add(button12);
+            tabPage4.Controls.Add(richTextBox1);
+            tabPage4.Location = new Point(4, 34);
+            tabPage4.Name = "tabPage4";
+            tabPage4.Padding = new Padding(3);
+            tabPage4.Size = new Size(1749, 679);
+            tabPage4.TabIndex = 9;
+            tabPage4.Text = "TextMemo";
+            tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // button12
+            // 
+            button12.Location = new Point(20, 7);
+            button12.Name = "button12";
+            button12.Size = new Size(112, 34);
+            button12.TabIndex = 1;
+            button12.Text = "保存";
+            button12.UseVisualStyleBackColor = true;
+            button12.Click += button12_Click;
+            // 
+            // richTextBox1
+            // 
+            richTextBox1.Location = new Point(20, 47);
+            richTextBox1.Name = "richTextBox1";
+            richTextBox1.Size = new Size(1723, 610);
+            richTextBox1.TabIndex = 0;
+            richTextBox1.Text = "";
+            // 
             // tabPage2
             // 
             tabPage2.Controls.Add(webView21);
@@ -1722,6 +1841,47 @@ namespace TestApp
             webView21.TabIndex = 0;
             webView21.ZoomFactor = 1D;
             // 
+            // contextMenuStrip2
+            // 
+            contextMenuStrip2.ImageScalingSize = new Size(24, 24);
+            contextMenuStrip2.Items.AddRange(new ToolStripItem[] { ファイルを実行ToolStripMenuItem, 項目を削除ToolStripMenuItem });
+            contextMenuStrip2.Name = "contextMenuStrip2";
+            contextMenuStrip2.Size = new Size(211, 68);
+            contextMenuStrip2.Opening += contextMenuStrip2_Opening;
+            // 
+            // ファイルを実行ToolStripMenuItem
+            // 
+            ファイルを実行ToolStripMenuItem.Name = "ファイルを実行ToolStripMenuItem";
+            ファイルを実行ToolStripMenuItem.Size = new Size(210, 32);
+            ファイルを実行ToolStripMenuItem.Text = "ファイルを実行";
+            ファイルを実行ToolStripMenuItem.Click += ファイルを実行ToolStripMenuItem_Click;
+            // 
+            // 項目を削除ToolStripMenuItem
+            // 
+            項目を削除ToolStripMenuItem.Name = "項目を削除ToolStripMenuItem";
+            項目を削除ToolStripMenuItem.Size = new Size(210, 32);
+            項目を削除ToolStripMenuItem.Text = "項目を削除";
+            項目を削除ToolStripMenuItem.Click += 項目を削除ToolStripMenuItem_Click;
+            // 
+            // numericUpDown1
+            // 
+            numericUpDown1.Location = new Point(153, 6);
+            numericUpDown1.Name = "numericUpDown1";
+            numericUpDown1.Size = new Size(88, 34);
+            numericUpDown1.TabIndex = 2;
+            numericUpDown1.TextAlign = HorizontalAlignment.Right;
+            numericUpDown1.Value = new decimal(new int[] { 9, 0, 0, 0 });
+            numericUpDown1.ValueChanged += numericUpDown1_ValueChanged;
+            // 
+            // label17
+            // 
+            label17.AutoSize = true;
+            label17.Location = new Point(247, 12);
+            label17.Name = "label17";
+            label17.Size = new Size(32, 25);
+            label17.TabIndex = 3;
+            label17.Text = "px";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(11F, 25F);
@@ -1741,8 +1901,14 @@ namespace TestApp
             groupBox2.ResumeLayout(false);
             groupBox1.ResumeLayout(false);
             contextMenuStrip1.ResumeLayout(false);
+            tabPage3.ResumeLayout(false);
+            tabPage3.PerformLayout();
+            tabPage4.ResumeLayout(false);
+            tabPage4.PerformLayout();
             tabPage2.ResumeLayout(false);
             ((ISupportInitialize)webView21).EndInit();
+            contextMenuStrip2.ResumeLayout(false);
+            ((ISupportInitialize)numericUpDown1).EndInit();
             ResumeLayout(false);
         }
 
@@ -1878,5 +2044,19 @@ namespace TestApp
         private GroupBox groupBox2;
         private GroupBox groupBox1;
         private Button button8;
+        private TabPage tabPage3;
+        private ListBox listBox1;
+        private Button button9;
+        private Label label16;
+        private ContextMenuStrip contextMenuStrip2;
+        private ToolStripMenuItem ファイルを実行ToolStripMenuItem;
+        private ToolStripMenuItem 項目を削除ToolStripMenuItem;
+        private Button button11;
+        private Button button10;
+        private TabPage tabPage4;
+        private RichTextBox richTextBox1;
+        private Button button12;
+        private Label label17;
+        private NumericUpDown numericUpDown1;
     }
 }

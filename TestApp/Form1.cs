@@ -1,12 +1,12 @@
 ﻿using CsvHelper;
 using HolidayJp; 
 using IniParser;
-using NAudio.Wave;
 using Json.Net;
 using Markdig;
 using Markdig.Wpf;
 using Microsoft.Web.WebView2;
 using Microsoft.Web.WebView2.Core;
+using NAudio.Wave;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Python.Runtime;
@@ -14,6 +14,7 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Text;
 using System.Text.Json;
 using System.Text.RegularExpressions;
 using System.Windows.Documents;
@@ -43,7 +44,7 @@ namespace TestApp
             //backgroundWorker1.DoWork += new DoWorkEventHandler(backgroundWorker1_DoWork);
             //backgroundWorker1.ProgressChanged += new ProgressChangedEventHandler(backgroundWorker1_ProgressChanged);
             //backgroundWorker1.RunWorkerCompleted += new RunWorkerCompletedEventHandler(backgroundWorker1_RunWorkerCompleted);
-
+            Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
             //設定ファイル読み込み
             var parser = new FileIniDataParser();
 
@@ -62,6 +63,7 @@ namespace TestApp
                 BrowserPath = data["Browser"]["BrowserPath"];
             }
             textBox1.Text = BrowserPath;
+
 
             await webView21.EnsureCoreWebView2Async();
             Action act = BackgroundTask;
@@ -128,6 +130,11 @@ namespace TestApp
 
         public AudioFileReader[] push = new AudioFileReader[3];
         public bool stop = true;
+
+        public static string PinnedFile = "file:///C:/Users/琢真/Downloads/2026_教職化学2.pdf";
+
+
+
 
         public string BrowserPath;
         /*
@@ -632,10 +639,10 @@ namespace TestApp
                             int ignoredminutes = isHoliday ? 5 : 0;
                             if ((isIgnored && (Buslist[data].Details[i].Hour < 10 || (Buslist[data].Details[i].Hour == 10 && Buslist[data].Details[i].Minutes <= ignoredminutes)))
                                 || (Buslist[data].Details[i].isSkip == true && (nowMonth == 2 && nowDay >= 13 || nowMonth == 3))
-                                                                                                                                          /*|| (j == 0 && data1_enable == 1)
-                                                                                                                                            || (j == 1 && data2_enable == 1)
-                                                                                                                                            || (j == 2 && data3_enable == 1)
-                                                                                                                                            || (j == 3 && data4_enable == 1)*/)
+                                                                                                                                                                    /*|| (j == 0 && data1_enable == 1)
+                                                                                                                                                                      || (j == 1 && data2_enable == 1)
+                                                                                                                                                                      || (j == 2 && data3_enable == 1)
+                                                                                                                                                                      || (j == 3 && data4_enable == 1)*/)
                             {
                                 //判定対象外。何もしない
                                 DebugCode = 4;
@@ -1953,6 +1960,16 @@ namespace TestApp
 
         #endregion
 
+        #region [FileClipper]
+
+        public void OpenFile(string FilePath)
+        {
+            System.Diagnostics.Process.Start("explorer.exe", $"/select,\"{FilePath}\"");
+        }
+
+
+        #endregion
+
         #region [Readme]
 
         public void CreateReadme()
@@ -2489,6 +2506,89 @@ namespace TestApp
             {
                 textBox1.Text = str;
             }
+        }
+
+        private void LinkClicked(object sender, LinkClickedEventArgs e)
+        {
+
+        }
+
+        private void doubleclick(object sender, EventArgs e)
+        {
+            OpenFile(listBox1.SelectedItem.ToString());
+        }
+
+        private void DragEnter(object sender, DragEventArgs e)
+        {
+            e.Effect = DragDropEffects.All;
+        }
+
+        private void DragDrop(object sender, DragEventArgs e)
+        {
+            if (!e.Data.GetDataPresent(DataFormats.FileDrop)) return;
+
+            // 渡されたファイルに対して処理を行う
+            foreach (var filePath in (string[])e.Data.GetData(DataFormats.FileDrop))
+            {
+                listBox1.Items.Add(filePath);
+            }
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            string str = "";
+            foreach (var Items in listBox1.Items)
+            {
+                str += Items.ToString();
+                str += "\n";
+            }
+            File.WriteAllText(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + @"\\Documents\\Export.txt", str);
+        }
+
+        private void contextMenuStrip2_Opening(object sender, CancelEventArgs e)
+        {
+
+        }
+
+        private void ファイルを実行ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (File.Exists(listBox1.SelectedItems.ToString()))
+            {
+                System.Diagnostics.Process.Start(new ProcessStartInfo(listBox1.SelectedItems.ToString()));
+            }
+
+        }
+
+        private void 項目を削除ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            listBox1.Items.Remove(listBox1.SelectedItems);
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            if (File.Exists(listBox1.Items[listBox1.SelectedIndex].ToString()))
+            {
+                using System.Diagnostics.Process process = new System.Diagnostics.Process();
+                process.StartInfo.FileName = listBox1.Items[listBox1.SelectedIndex].ToString();
+                process.StartInfo.UseShellExecute = true;
+                process.Start();
+            }
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            listBox1.Items.RemoveAt(listBox1.SelectedIndex);
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            string str = richTextBox1.Text;
+            File.WriteAllText(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + @"\\Documents\\TextExport.txt", str);
+        }
+
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+            richTextBox1.Font = new Font(label1.Font.FontFamily, (int)numericUpDown1.Value, label1.Font.Style); 
         }
     }
 }

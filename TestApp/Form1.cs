@@ -57,7 +57,7 @@ namespace TestApp
             //Background操作起動処理
 
             BrowserPath = "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe";
-            if (data["Browser"]["BrowserPath"] != null) 
+            if (data["Browser"]["BrowserPath"] != null)
             {
                 BrowserPath = data["Browser"]["BrowserPath"];
             }
@@ -632,10 +632,10 @@ namespace TestApp
                             int ignoredminutes = isHoliday ? 5 : 0;
                             if ((isIgnored && (Buslist[data].Details[i].Hour < 10 || (Buslist[data].Details[i].Hour == 10 && Buslist[data].Details[i].Minutes <= ignoredminutes)))
                                 || (Buslist[data].Details[i].isSkip == true && (nowMonth == 2 && nowDay >= 13 || nowMonth == 3))
-                                                                                                                                      /*|| (j == 0 && data1_enable == 1)
-                                                                                                                                        || (j == 1 && data2_enable == 1)
-                                                                                                                                        || (j == 2 && data3_enable == 1)
-                                                                                                                                        || (j == 3 && data4_enable == 1)*/)
+                                                                                                                                          /*|| (j == 0 && data1_enable == 1)
+                                                                                                                                            || (j == 1 && data2_enable == 1)
+                                                                                                                                            || (j == 2 && data3_enable == 1)
+                                                                                                                                            || (j == 3 && data4_enable == 1)*/)
                             {
                                 //判定対象外。何もしない
                                 DebugCode = 4;
@@ -1367,7 +1367,7 @@ namespace TestApp
                 linkLabel41.Text = DataList[6, 4].Title;
                 linkLabel42.Text = DataList[6, 5].Title;
             }
-            else 
+            else
             {
                 Trace.TraceInformation("定義処理はスキップします。");
             }
@@ -1896,16 +1896,16 @@ namespace TestApp
         public void AntiThreat(string Path)
         {
             //エラー防止もしくは脅威からの保護のため、実行ファイル名を定義。
-            string[] str = new string[7] {"msedge.exe", "chrome.exe", "firefox.exe","Brave.exe", "vivaldi.exe", "floorp.exe", "opera.exe" };
+            string[] str = new string[7] { "msedge.exe", "chrome.exe", "firefox.exe", "Brave.exe", "vivaldi.exe", "floorp.exe", "opera.exe" };
             int count = 0;
-            for (int i = 0;i < 7; i++) 
+            for (int i = 0; i < 7; i++)
             {
-                if (!Path.Contains(str[i])) 
+                if (!Path.Contains(str[i]))
                 {
                     count++;
                 }
             }
-            if (count == 7) 
+            if (count == 7)
             {
                 throw new InvalidOperationException("リストに存在しない実行ファイルです。");
             }
@@ -1913,17 +1913,42 @@ namespace TestApp
 
         public string SetBrowser()
         {
+            return SetBrowser(false, false);
+        }
+        public string SetBrowser(bool x86)
+        {
+            return SetBrowser(x86, false);
+        }
+        public string SetBrowser(bool x86, bool AppData)
+        {
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.FileName = "";
-            ofd.InitialDirectory = System.IO.Path.Combine("C:\\Program Files");
+            string path = "";
+            if (x86)
+                path = "C:\\Program Files (x86)";
+            else if (AppData)
+                path = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\AppData";
+            else
+                path = "C:\\Program Files";
+            ofd.InitialDirectory = System.IO.Path.Combine(path);
             ofd.Filter = "実行ファイル|*.exe|すべて|*.*";
             ofd.Title = "ファイルを選択";
             string str = "";
             if (ofd.ShowDialog() == DialogResult.OK)
             {
-                str = ofd.FileName;
+                if (str != null)
+                {
+                    str = ofd.FileName;
+
+                }
+                return str;
+
             }
-            return str;
+            else
+            {
+                return textBox1.Text;
+            }
+
         }
 
         #endregion
@@ -2438,7 +2463,32 @@ namespace TestApp
         private void button5_Click(object sender, EventArgs e)
         {
             StartAudio(2, false);
-            textBox1.Text = SetBrowser();
+            string str = SetBrowser();
+            if (str != null || str == "")
+            {
+                textBox1.Text = str;
+            }
+
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            StartAudio(2, false);
+            string str = SetBrowser(true);
+            if (str != null || str == "")
+            {
+                textBox1.Text = str;
+            }
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            StartAudio(2, false);
+            string str = SetBrowser(false, true);
+            if (str != null || str == "")
+            {
+                textBox1.Text = str;
+            }
         }
     }
 }

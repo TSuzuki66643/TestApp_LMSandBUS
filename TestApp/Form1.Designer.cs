@@ -89,13 +89,17 @@ namespace TestApp
             label69 = new Label();
             label70 = new Label();
             tabPage1 = new TabPage();
-            button5 = new Button();
-            button4 = new Button();
-            label15 = new Label();
-            textBox1 = new TextBox();
+            groupBox2 = new GroupBox();
             button3 = new Button();
             button2 = new Button();
             button1 = new Button();
+            groupBox1 = new GroupBox();
+            button8 = new Button();
+            button4 = new Button();
+            button6 = new Button();
+            button5 = new Button();
+            label15 = new Label();
+            textBox1 = new TextBox();
             label14 = new Label();
             label13 = new Label();
             label12 = new Label();
@@ -162,6 +166,8 @@ namespace TestApp
             tabControl1.SuspendLayout();
             tabPage6.SuspendLayout();
             tabPage1.SuspendLayout();
+            groupBox2.SuspendLayout();
+            groupBox1.SuspendLayout();
             contextMenuStrip1.SuspendLayout();
             tabPage2.SuspendLayout();
             ((ISupportInitialize)webView21).BeginInit();
@@ -858,13 +864,10 @@ namespace TestApp
             // 
             // tabPage1
             // 
-            tabPage1.Controls.Add(button5);
-            tabPage1.Controls.Add(button4);
+            tabPage1.Controls.Add(groupBox2);
+            tabPage1.Controls.Add(groupBox1);
             tabPage1.Controls.Add(label15);
             tabPage1.Controls.Add(textBox1);
-            tabPage1.Controls.Add(button3);
-            tabPage1.Controls.Add(button2);
-            tabPage1.Controls.Add(button1);
             tabPage1.Controls.Add(label14);
             tabPage1.Controls.Add(label13);
             tabPage1.Controls.Add(label12);
@@ -929,46 +932,21 @@ namespace TestApp
             tabPage1.Text = "LMSジャンパー";
             tabPage1.UseVisualStyleBackColor = true;
             // 
-            // button5
+            // groupBox2
             // 
-            button5.Location = new Point(1283, 631);
-            button5.Name = "button5";
-            button5.Size = new Size(112, 34);
-            button5.TabIndex = 62;
-            button5.Text = "参照...";
-            button5.UseVisualStyleBackColor = true;
-            button5.Click += button5_Click;
-            // 
-            // button4
-            // 
-            button4.Location = new Point(1165, 631);
-            button4.Name = "button4";
-            button4.Size = new Size(112, 34);
-            button4.TabIndex = 61;
-            button4.Text = "セット";
-            button4.UseVisualStyleBackColor = true;
-            button4.Click += button4_Click;
-            // 
-            // label15
-            // 
-            label15.AutoSize = true;
-            label15.Location = new Point(54, 634);
-            label15.Name = "label15";
-            label15.Size = new Size(138, 25);
-            label15.TabIndex = 60;
-            label15.Text = "ブラウザーバス";
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(209, 631);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(950, 34);
-            textBox1.TabIndex = 59;
-            textBox1.TextChanged += textBox1_TextChanged;
+            groupBox2.Controls.Add(button3);
+            groupBox2.Controls.Add(button2);
+            groupBox2.Controls.Add(button1);
+            groupBox2.Location = new Point(1491, 471);
+            groupBox2.Name = "groupBox2";
+            groupBox2.Size = new Size(228, 184);
+            groupBox2.TabIndex = 65;
+            groupBox2.TabStop = false;
+            groupBox2.Text = "ツール";
             // 
             // button3
             // 
-            button3.Location = new Point(1533, 523);
+            button3.Location = new Point(14, 30);
             button3.Name = "button3";
             button3.Size = new Size(200, 34);
             button3.TabIndex = 58;
@@ -978,7 +956,7 @@ namespace TestApp
             // 
             // button2
             // 
-            button2.Location = new Point(1533, 577);
+            button2.Location = new Point(14, 87);
             button2.Name = "button2";
             button2.Size = new Size(200, 34);
             button2.TabIndex = 57;
@@ -988,13 +966,83 @@ namespace TestApp
             // 
             // button1
             // 
-            button1.Location = new Point(1533, 629);
+            button1.Location = new Point(14, 141);
             button1.Name = "button1";
             button1.Size = new Size(200, 34);
             button1.TabIndex = 56;
             button1.Text = "JSONインポート...";
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
+            // 
+            // groupBox1
+            // 
+            groupBox1.Controls.Add(button8);
+            groupBox1.Controls.Add(button4);
+            groupBox1.Controls.Add(button6);
+            groupBox1.Controls.Add(button5);
+            groupBox1.Location = new Point(1491, 36);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(228, 230);
+            groupBox1.TabIndex = 64;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "ブラウザー設定";
+            // 
+            // button8
+            // 
+            button8.Location = new Point(24, 182);
+            button8.Name = "button8";
+            button8.Size = new Size(180, 34);
+            button8.TabIndex = 64;
+            button8.Text = "参照(AppData)...";
+            button8.UseVisualStyleBackColor = true;
+            button8.Click += button8_Click;
+            // 
+            // button4
+            // 
+            button4.Location = new Point(24, 33);
+            button4.Name = "button4";
+            button4.Size = new Size(180, 34);
+            button4.TabIndex = 61;
+            button4.Text = "パスを設定";
+            button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
+            // 
+            // button6
+            // 
+            button6.Location = new Point(24, 131);
+            button6.Name = "button6";
+            button6.Size = new Size(180, 34);
+            button6.TabIndex = 63;
+            button6.Text = "参照(x86)...";
+            button6.UseVisualStyleBackColor = true;
+            button6.Click += button6_Click;
+            // 
+            // button5
+            // 
+            button5.Location = new Point(24, 81);
+            button5.Name = "button5";
+            button5.Size = new Size(180, 34);
+            button5.TabIndex = 62;
+            button5.Text = "参照...";
+            button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click;
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.Location = new Point(54, 634);
+            label15.Name = "label15";
+            label15.Size = new Size(138, 25);
+            label15.TabIndex = 60;
+            label15.Text = "ブラウザーパス";
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(209, 631);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(924, 34);
+            textBox1.TabIndex = 59;
+            textBox1.TextChanged += textBox1_TextChanged;
             // 
             // label14
             // 
@@ -1690,6 +1738,8 @@ namespace TestApp
             tabPage6.PerformLayout();
             tabPage1.ResumeLayout(false);
             tabPage1.PerformLayout();
+            groupBox2.ResumeLayout(false);
+            groupBox1.ResumeLayout(false);
             contextMenuStrip1.ResumeLayout(false);
             tabPage2.ResumeLayout(false);
             ((ISupportInitialize)webView21).EndInit();
@@ -1824,5 +1874,9 @@ namespace TestApp
         private TextBox textBox1;
         private Button button5;
         private Button button4;
+        private Button button6;
+        private GroupBox groupBox2;
+        private GroupBox groupBox1;
+        private Button button8;
     }
 }

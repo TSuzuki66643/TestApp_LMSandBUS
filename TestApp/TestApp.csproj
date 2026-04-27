@@ -8,7 +8,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Platforms>AnyCPU;x64</Platforms>
     <SupportedOSPlatformVersion>10.0.17763.0</SupportedOSPlatformVersion>
-    <ApplicationIcon>135139788_p3.ico</ApplicationIcon>
+    <ApplicationIcon>screenshot.123.ico</ApplicationIcon>
     <Title>TestApp</Title>
     <Description>このソフトはただ趣味で作ったものである。
 This software is built because coding is one of my hobbies.</Description>
@@ -26,7 +26,7 @@ This software is built because coding is one of my hobbies.</Description>
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="135139788_p3.ico" />
+    <Content Include="screenshot.123.ico" />
   </ItemGroup>
 
   <ItemGroup>

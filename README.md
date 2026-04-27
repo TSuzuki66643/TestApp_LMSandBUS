@@ -218,26 +218,7 @@ SupportOSVersion: 10.0.17763.0 (Windows 10 初期バージョン)
 * 効果音：ポケットサウンド – https://pocket-se.info/
 * VSQPlus - https://vsq.co.jp/plus/
 
-# メモ
-```json
-"actingUrl": "https://eduweb.sta.kanazawa-u.ac.jp/Portal/StudentApp/Acting/ActingList.aspx?lct_year=2026&lct_term=00&lct_cd=74G00.11",
-"credit": "1単位",
-"day": "月",
-"lctCd": "74G00.11",
-"lmsUrl": "https://acanthus.cis.kanazawa-u.ac.jp/base/lms-course/sso-link/?courseId=26010074G00110&systemType=1",
-"period": 1,
-"sbjDiv": "[ＧＳ６＼(6B)]",
-"subjectName": "★AI入門",
-"syllabusUrl": "https://eduweb.sta.kanazawa-u.ac.jp/Portal/Public/Syllabus/DetailMain.aspx?lct_year=2026&fac_cd=-&lct_no=74G00.11",
-"teacher": "八柳　祐一"
-```
 
-Weekday → "day"をswitchもしくはif文で実装<br>
-Time → "Period"の値-1で実装<br>
-Label → "subjectName" から読み取り　必要に応じてRemoveで"★"を削除<br>
-URL → "lmsUrl" をそのまま代入<br>
-(ここからは構想)<br>
-SyllabusURL → "syllabusUrl" を代入 モード選択で関数を変更
 
 ## 誰かによる手記
 

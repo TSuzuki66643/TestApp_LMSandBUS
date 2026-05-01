@@ -89,11 +89,13 @@ namespace TestApp
             label69 = new Label();
             label70 = new Label();
             tabPage1 = new TabPage();
+            checkBox1 = new CheckBox();
             groupBox2 = new GroupBox();
             button3 = new Button();
             button2 = new Button();
             button1 = new Button();
             groupBox1 = new GroupBox();
+            button13 = new Button();
             button8 = new Button();
             button4 = new Button();
             button6 = new Button();
@@ -167,6 +169,8 @@ namespace TestApp
             label16 = new Label();
             listBox1 = new ListBox();
             tabPage4 = new TabPage();
+            label17 = new Label();
+            numericUpDown1 = new NumericUpDown();
             button12 = new Button();
             richTextBox1 = new RichTextBox();
             tabPage2 = new TabPage();
@@ -175,8 +179,7 @@ namespace TestApp
             ファイルを実行ToolStripMenuItem = new ToolStripMenuItem();
             項目を削除ToolStripMenuItem = new ToolStripMenuItem();
             backgroundWorker1 = new BackgroundWorker();
-            numericUpDown1 = new NumericUpDown();
-            label17 = new Label();
+            toolTip1 = new ToolTip(components);
             tabControl1.SuspendLayout();
             tabPage6.SuspendLayout();
             tabPage1.SuspendLayout();
@@ -185,10 +188,10 @@ namespace TestApp
             contextMenuStrip1.SuspendLayout();
             tabPage3.SuspendLayout();
             tabPage4.SuspendLayout();
+            ((ISupportInitialize)numericUpDown1).BeginInit();
             tabPage2.SuspendLayout();
             ((ISupportInitialize)webView21).BeginInit();
             contextMenuStrip2.SuspendLayout();
-            ((ISupportInitialize)numericUpDown1).BeginInit();
             SuspendLayout();
             // 
             // tabControl1
@@ -884,6 +887,7 @@ namespace TestApp
             // 
             // tabPage1
             // 
+            tabPage1.Controls.Add(checkBox1);
             tabPage1.Controls.Add(groupBox2);
             tabPage1.Controls.Add(groupBox1);
             tabPage1.Controls.Add(label15);
@@ -944,13 +948,25 @@ namespace TestApp
             tabPage1.Controls.Add(linkLabel2);
             tabPage1.Controls.Add(linkLabel1);
             tabPage1.Controls.Add(label1);
-            tabPage1.Location = new Point(4, 35);
+            tabPage1.Location = new Point(4, 34);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(1749, 678);
+            tabPage1.Size = new Size(1749, 679);
             tabPage1.TabIndex = 6;
             tabPage1.Text = "LMSジャンパー";
             tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // checkBox1
+            // 
+            checkBox1.AutoSize = true;
+            checkBox1.Location = new Point(1148, 634);
+            checkBox1.Name = "checkBox1";
+            checkBox1.Size = new Size(218, 29);
+            checkBox1.TabIndex = 66;
+            checkBox1.Text = "これはブラウザーです";
+            toolTip1.SetToolTip(checkBox1, "ブラウザーかどうかの判定結果です。\r\nブラウザーであるが、チェックが入っていない場合は、チェックを入れます。");
+            checkBox1.UseVisualStyleBackColor = true;
+            checkBox1.CheckedChanged += checkBox1_CheckedChanged;
             // 
             // groupBox2
             // 
@@ -959,7 +975,7 @@ namespace TestApp
             groupBox2.Controls.Add(button1);
             groupBox2.Location = new Point(1491, 471);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(228, 184);
+            groupBox2.Size = new Size(228, 192);
             groupBox2.TabIndex = 65;
             groupBox2.TabStop = false;
             groupBox2.Text = "ツール";
@@ -971,6 +987,7 @@ namespace TestApp
             button3.Size = new Size(200, 34);
             button3.TabIndex = 58;
             button3.Text = "アカンサスポータルへ";
+            toolTip1.SetToolTip(button3, "アカンサスポータルのトップページを開きます。");
             button3.UseVisualStyleBackColor = true;
             button3.Click += button3_Click;
             // 
@@ -981,6 +998,7 @@ namespace TestApp
             button2.Size = new Size(200, 34);
             button2.TabIndex = 57;
             button2.Text = "学務情報サービスへ";
+            toolTip1.SetToolTip(button2, "学務情報サービスのトップページを開きます。");
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
             // 
@@ -991,21 +1009,34 @@ namespace TestApp
             button1.Size = new Size(200, 34);
             button1.TabIndex = 56;
             button1.Text = "JSONインポート...";
+            toolTip1.SetToolTip(button1, "エクスポートファイルをインポートします。\r\nGood Bye LMS Page/#バイバイ金大LMSのものが使えます。");
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(button13);
             groupBox1.Controls.Add(button8);
             groupBox1.Controls.Add(button4);
             groupBox1.Controls.Add(button6);
             groupBox1.Controls.Add(button5);
             groupBox1.Location = new Point(1491, 36);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(228, 230);
+            groupBox1.Size = new Size(228, 287);
             groupBox1.TabIndex = 64;
             groupBox1.TabStop = false;
             groupBox1.Text = "ブラウザー設定";
+            // 
+            // button13
+            // 
+            button13.Location = new Point(24, 235);
+            button13.Name = "button13";
+            button13.Size = new Size(180, 34);
+            button13.TabIndex = 65;
+            button13.Text = "元に戻す";
+            toolTip1.SetToolTip(button13, "入力欄の変更を元に戻します。");
+            button13.UseVisualStyleBackColor = true;
+            button13.Click += button13_Click;
             // 
             // button8
             // 
@@ -1014,6 +1045,7 @@ namespace TestApp
             button8.Size = new Size(180, 34);
             button8.TabIndex = 64;
             button8.Text = "参照(AppData)...";
+            toolTip1.SetToolTip(button8, "ブラウザーのファイルを探すことができます。\r\n規定フォルダは\"C:\\Users\\<ユーザー名>\\AppData\"です。\r\n");
             button8.UseVisualStyleBackColor = true;
             button8.Click += button8_Click;
             // 
@@ -1024,6 +1056,7 @@ namespace TestApp
             button4.Size = new Size(180, 34);
             button4.TabIndex = 61;
             button4.Text = "パスを設定";
+            toolTip1.SetToolTip(button4, "パス入力欄の内容でブラウザーを設定します");
             button4.UseVisualStyleBackColor = true;
             button4.Click += button4_Click;
             // 
@@ -1034,6 +1067,7 @@ namespace TestApp
             button6.Size = new Size(180, 34);
             button6.TabIndex = 63;
             button6.Text = "参照(x86)...";
+            toolTip1.SetToolTip(button6, "ブラウザーのファイルを探すことができます。\r\n規定フォルダは\"C:\\Program Files (x86)\"です。\r\n");
             button6.UseVisualStyleBackColor = true;
             button6.Click += button6_Click;
             // 
@@ -1044,6 +1078,7 @@ namespace TestApp
             button5.Size = new Size(180, 34);
             button5.TabIndex = 62;
             button5.Text = "参照...";
+            toolTip1.SetToolTip(button5, "ブラウザーのファイルを探すことができます。\r\n規定フォルダは\"C:\\Program Files\"です。");
             button5.UseVisualStyleBackColor = true;
             button5.Click += button5_Click;
             // 
@@ -1062,6 +1097,7 @@ namespace TestApp
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(924, 34);
             textBox1.TabIndex = 59;
+            toolTip1.SetToolTip(textBox1, "ブラウザーの実行ファイルがあるパスを入力します。");
             textBox1.TextChanged += textBox1_TextChanged;
             // 
             // label14
@@ -1130,7 +1166,7 @@ namespace TestApp
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(105, 566);
+            label7.Location = new Point(105, 556);
             label7.Name = "label7";
             label7.Size = new Size(23, 25);
             label7.TabIndex = 48;
@@ -1139,7 +1175,7 @@ namespace TestApp
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(105, 471);
+            label6.Location = new Point(105, 466);
             label6.Name = "label6";
             label6.Size = new Size(23, 25);
             label6.TabIndex = 47;
@@ -1185,7 +1221,7 @@ namespace TestApp
             // 
             linkLabel42.AutoSize = true;
             linkLabel42.ContextMenuStrip = contextMenuStrip1;
-            linkLabel42.Location = new Point(1323, 566);
+            linkLabel42.Location = new Point(1323, 556);
             linkLabel42.Name = "linkLabel42";
             linkLabel42.Size = new Size(113, 25);
             linkLabel42.TabIndex = 42;
@@ -1223,7 +1259,7 @@ namespace TestApp
             // 
             linkLabel41.AutoSize = true;
             linkLabel41.ContextMenuStrip = contextMenuStrip1;
-            linkLabel41.Location = new Point(1323, 471);
+            linkLabel41.Location = new Point(1323, 466);
             linkLabel41.Name = "linkLabel41";
             linkLabel41.Size = new Size(113, 25);
             linkLabel41.TabIndex = 41;
@@ -1283,7 +1319,7 @@ namespace TestApp
             // 
             linkLabel36.AutoSize = true;
             linkLabel36.ContextMenuStrip = contextMenuStrip1;
-            linkLabel36.Location = new Point(1130, 566);
+            linkLabel36.Location = new Point(1130, 556);
             linkLabel36.Name = "linkLabel36";
             linkLabel36.Size = new Size(113, 25);
             linkLabel36.TabIndex = 36;
@@ -1295,7 +1331,7 @@ namespace TestApp
             // 
             linkLabel35.AutoSize = true;
             linkLabel35.ContextMenuStrip = contextMenuStrip1;
-            linkLabel35.Location = new Point(1130, 471);
+            linkLabel35.Location = new Point(1130, 466);
             linkLabel35.Name = "linkLabel35";
             linkLabel35.Size = new Size(113, 25);
             linkLabel35.TabIndex = 35;
@@ -1355,7 +1391,7 @@ namespace TestApp
             // 
             linkLabel30.AutoSize = true;
             linkLabel30.ContextMenuStrip = contextMenuStrip1;
-            linkLabel30.Location = new Point(956, 566);
+            linkLabel30.Location = new Point(956, 556);
             linkLabel30.Name = "linkLabel30";
             linkLabel30.Size = new Size(113, 25);
             linkLabel30.TabIndex = 30;
@@ -1367,7 +1403,7 @@ namespace TestApp
             // 
             linkLabel29.AutoSize = true;
             linkLabel29.ContextMenuStrip = contextMenuStrip1;
-            linkLabel29.Location = new Point(956, 471);
+            linkLabel29.Location = new Point(956, 466);
             linkLabel29.Name = "linkLabel29";
             linkLabel29.Size = new Size(113, 25);
             linkLabel29.TabIndex = 29;
@@ -1427,7 +1463,7 @@ namespace TestApp
             // 
             linkLabel24.AutoSize = true;
             linkLabel24.ContextMenuStrip = contextMenuStrip1;
-            linkLabel24.Location = new Point(768, 566);
+            linkLabel24.Location = new Point(768, 556);
             linkLabel24.Name = "linkLabel24";
             linkLabel24.Size = new Size(113, 25);
             linkLabel24.TabIndex = 24;
@@ -1439,7 +1475,7 @@ namespace TestApp
             // 
             linkLabel23.AutoSize = true;
             linkLabel23.ContextMenuStrip = contextMenuStrip1;
-            linkLabel23.Location = new Point(768, 471);
+            linkLabel23.Location = new Point(768, 466);
             linkLabel23.Name = "linkLabel23";
             linkLabel23.Size = new Size(113, 25);
             linkLabel23.TabIndex = 23;
@@ -1499,7 +1535,7 @@ namespace TestApp
             // 
             linkLabel18.AutoSize = true;
             linkLabel18.ContextMenuStrip = contextMenuStrip1;
-            linkLabel18.Location = new Point(574, 566);
+            linkLabel18.Location = new Point(574, 556);
             linkLabel18.Name = "linkLabel18";
             linkLabel18.Size = new Size(113, 25);
             linkLabel18.TabIndex = 18;
@@ -1511,7 +1547,7 @@ namespace TestApp
             // 
             linkLabel17.AutoSize = true;
             linkLabel17.ContextMenuStrip = contextMenuStrip1;
-            linkLabel17.Location = new Point(574, 471);
+            linkLabel17.Location = new Point(574, 466);
             linkLabel17.Name = "linkLabel17";
             linkLabel17.Size = new Size(113, 25);
             linkLabel17.TabIndex = 17;
@@ -1571,7 +1607,7 @@ namespace TestApp
             // 
             linkLabel12.AutoSize = true;
             linkLabel12.ContextMenuStrip = contextMenuStrip1;
-            linkLabel12.Location = new Point(390, 566);
+            linkLabel12.Location = new Point(390, 556);
             linkLabel12.Name = "linkLabel12";
             linkLabel12.Size = new Size(113, 25);
             linkLabel12.TabIndex = 12;
@@ -1583,7 +1619,7 @@ namespace TestApp
             // 
             linkLabel11.AutoSize = true;
             linkLabel11.ContextMenuStrip = contextMenuStrip1;
-            linkLabel11.Location = new Point(390, 471);
+            linkLabel11.Location = new Point(390, 466);
             linkLabel11.Name = "linkLabel11";
             linkLabel11.Size = new Size(113, 25);
             linkLabel11.TabIndex = 11;
@@ -1643,7 +1679,7 @@ namespace TestApp
             // 
             linkLabel6.AutoSize = true;
             linkLabel6.ContextMenuStrip = contextMenuStrip1;
-            linkLabel6.Location = new Point(209, 566);
+            linkLabel6.Location = new Point(209, 556);
             linkLabel6.Name = "linkLabel6";
             linkLabel6.Size = new Size(102, 25);
             linkLabel6.TabIndex = 6;
@@ -1655,7 +1691,7 @@ namespace TestApp
             // 
             linkLabel5.AutoSize = true;
             linkLabel5.ContextMenuStrip = contextMenuStrip1;
-            linkLabel5.Location = new Point(209, 471);
+            linkLabel5.Location = new Point(209, 466);
             linkLabel5.Name = "linkLabel5";
             linkLabel5.Size = new Size(102, 25);
             linkLabel5.TabIndex = 5;
@@ -1793,13 +1829,32 @@ namespace TestApp
             tabPage4.Controls.Add(numericUpDown1);
             tabPage4.Controls.Add(button12);
             tabPage4.Controls.Add(richTextBox1);
-            tabPage4.Location = new Point(4, 34);
+            tabPage4.Location = new Point(4, 35);
             tabPage4.Name = "tabPage4";
             tabPage4.Padding = new Padding(3);
-            tabPage4.Size = new Size(1749, 679);
+            tabPage4.Size = new Size(1749, 678);
             tabPage4.TabIndex = 9;
             tabPage4.Text = "TextMemo";
             tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // label17
+            // 
+            label17.AutoSize = true;
+            label17.Location = new Point(247, 12);
+            label17.Name = "label17";
+            label17.Size = new Size(32, 25);
+            label17.TabIndex = 3;
+            label17.Text = "px";
+            // 
+            // numericUpDown1
+            // 
+            numericUpDown1.Location = new Point(153, 6);
+            numericUpDown1.Name = "numericUpDown1";
+            numericUpDown1.Size = new Size(88, 34);
+            numericUpDown1.TabIndex = 2;
+            numericUpDown1.TextAlign = HorizontalAlignment.Right;
+            numericUpDown1.Value = new decimal(new int[] { 9, 0, 0, 0 });
+            numericUpDown1.ValueChanged += numericUpDown1_ValueChanged;
             // 
             // button12
             // 
@@ -1863,24 +1918,9 @@ namespace TestApp
             項目を削除ToolStripMenuItem.Text = "項目を削除";
             項目を削除ToolStripMenuItem.Click += 項目を削除ToolStripMenuItem_Click;
             // 
-            // numericUpDown1
+            // toolTip1
             // 
-            numericUpDown1.Location = new Point(153, 6);
-            numericUpDown1.Name = "numericUpDown1";
-            numericUpDown1.Size = new Size(88, 34);
-            numericUpDown1.TabIndex = 2;
-            numericUpDown1.TextAlign = HorizontalAlignment.Right;
-            numericUpDown1.Value = new decimal(new int[] { 9, 0, 0, 0 });
-            numericUpDown1.ValueChanged += numericUpDown1_ValueChanged;
-            // 
-            // label17
-            // 
-            label17.AutoSize = true;
-            label17.Location = new Point(247, 12);
-            label17.Name = "label17";
-            label17.Size = new Size(32, 25);
-            label17.TabIndex = 3;
-            label17.Text = "px";
+            toolTip1.Popup += toolTip1_Popup;
             // 
             // Form1
             // 
@@ -1905,10 +1945,10 @@ namespace TestApp
             tabPage3.PerformLayout();
             tabPage4.ResumeLayout(false);
             tabPage4.PerformLayout();
+            ((ISupportInitialize)numericUpDown1).EndInit();
             tabPage2.ResumeLayout(false);
             ((ISupportInitialize)webView21).EndInit();
             contextMenuStrip2.ResumeLayout(false);
-            ((ISupportInitialize)numericUpDown1).EndInit();
             ResumeLayout(false);
         }
 
@@ -2058,5 +2098,8 @@ namespace TestApp
         private Button button12;
         private Label label17;
         private NumericUpDown numericUpDown1;
+        private CheckBox checkBox1;
+        private Button button13;
+        private ToolTip toolTip1;
     }
 }

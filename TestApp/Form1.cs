@@ -20,6 +20,7 @@ using System.Text.RegularExpressions;
 using System.Windows.Documents;
 using Windows.ApplicationModel.UserDataTasks;
 using Windows.ApplicationModel.VoiceCommands;
+using Windows.Devices.PointOfService;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 using static System.Windows.Forms.AxHost;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Rebar;
@@ -38,12 +39,7 @@ namespace TestApp
 
         private async void Form1_Load(object sender, EventArgs e)
         {
-            //Setting data = new Setting();
-            //this.AcceptButton = this.button3;
-            //listBox4.Items.Add("ここに結果が表示されます...");
-            //backgroundWorker1.DoWork += new DoWorkEventHandler(backgroundWorker1_DoWork);
-            //backgroundWorker1.ProgressChanged += new ProgressChangedEventHandler(backgroundWorker1_ProgressChanged);
-            //backgroundWorker1.RunWorkerCompleted += new RunWorkerCompletedEventHandler(backgroundWorker1_RunWorkerCompleted);
+
             Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
             //設定ファイル読み込み
             var parser = new FileIniDataParser();
@@ -133,185 +129,16 @@ namespace TestApp
 
         public static string PinnedFile = "file:///C:/Users/琢真/Downloads/2026_教職化学2.pdf";
 
-
+        public static bool isAllowed;
 
 
         public string BrowserPath;
-        /*
-        public void DrawGraph()
-        {
-            a = (int)numericUpDown1.Value;
-            b = (int)numericUpDown2.Value;
-            c = (int)numericUpDown3.Value;
-            double s = (((double)numericUpDown2.Value - (double)numericUpDown1.Value) / (double)numericUpDown2.Value);
-            double result = Math.Pow(s, (double)numericUpDown3.Value);
-            string strResult = result.ToString("F6");
-            listBox1.Items.Add("Result = " + strResult);
 
-        }
-        public void culculate()
-        {
-            double t = 1.00 - ((double)numericUpDown4.Value * 0.01);
-            double result2 = Math.Pow(t, (double)numericUpDown6.Value);
-            string strResult2 = result2.ToString("F6");
-            listBox2.Items.Add("Result = " + strResult2);
-        }
-        public void Run()
-        {
-            double x = (double)numericUpDown5.Value;
-            listBox3.Items.Add("<Result>");
-
-            for (int i = 0; i < numericUpDown9.Value; i++)
-            {
-                double t = 1.00 - (x * 0.01);
-                double result2 = Math.Pow(t, (double)numericUpDown7.Value);
-                string strResult2 = result2.ToString("F6");
-                listBox3.Items.Add(x.ToString("0.000") + " | " + strResult2);
-                x += (double)numericUpDown8.Value;
-            }
-            listBox3.Items.Add("</Result>");
-        }
-        */
-        public void TestThread()
-        {
-            /*
-            Progress Progress = new Progress();
-            Progress.Process1 = 0;
-            Progress.Total = (int)numericUpDown11.Value * (int)numericUpDown10.Value * (int)numericUpDown13.Value;
-            var Thread = new Thread(new ThreadStart(Test));
-            listBox4.Items.Add("<Result>");
-            Thread.Start();
-            while (Thread.IsAlive)
-            {
-                progressBar1.Value = (int)(Progress.Process1 / Progress.Total * 100);
-            }
-            Thread.Join();
-            string strResult5 = LastResult.ToString("F6");
-            listBox4.Items.Add(" ");
-            listBox4.Items.Add("Result | " + strResult5);
-            listBox4.Items.Add("</Result>");
-            Trace.WriteLine("Process finished.");
-            Thread = null;*/
-        }
-
-        public void UpdateToThread()
-        {
-            var thread = new Thread(new ThreadStart(UpdateProgressbar));
-            thread.Start();
-            thread.Join();
-            thread = null;
-
-        }
         public void UpdateProgressbar()
         {
             //progressBar1.Update();
         }
-        /*
-        public void Test2()
-        {
-            Random rand = new Random();
-            int count = 0;
-            int x = (int)numericUpDown4.Value;
-            for (int i = 0; i < (int)numericUpDown6.Value; i++)
-            {
-                double r = rand.NextDouble();
-                if (r < x * 0.01)
-                {
-                    count++;
-                }
-            }
-            double result = count / (double)numericUpDown6.Value;
-            string strResult2 = result.ToString("F6");
-            listBox2.Items.Add("Result = " + strResult2);
-        }
-        public void Test(BackgroundWorker bgWorker)
-        {
-            progressPoint = 0;
-            double x = (double)numericUpDown12.Value;
 
-            Random rand = new Random();
-
-            Progress Progress = new Progress();
-
-            double[] Result6 = new double[(int)numericUpDown11.Value];
-            for (int m = 0; m < numericUpDown11.Value; m++)
-            {
-                double Accurate = 0;
-                string strResult4 = "";
-                double[] result3 = new double[(int)numericUpDown10.Value];
-                List<double> result5 = new List<double>();
-                for (int n = 0; n < (int)numericUpDown10.Value; n++)
-                {
-                    int Count = 0;
-
-                    for (int i = 0; i < (int)numericUpDown13.Value; i++)
-                    {
-                        double r = rand.NextDouble();
-                        if (r < x * 0.01)
-                        {
-                            Count++;
-                        }
-                        Progress.Process1++;
-
-
-
-                    }
-                    double result = Count / (double)numericUpDown13.Value;
-                    string strResult2 = result.ToString("F6");
-                    //listBox4.Items.Add(n.ToString("000000") + " | " + strResult2);
-                    result3[n] = result;
-                    result5.Add(result);
-                    //Trace.WriteLine("Finish "+n.ToString()+"/"+);
-                    //Progress.Process2++;
-
-                }
-                int LastCount = 0;
-                foreach (var s in result5)
-                {
-                    if (s == 0.000000)
-                    {
-                        LastCount++;
-                    }
-                }
-                Accurate = LastCount / (double)numericUpDown10.Value;
-                strResult4 = Accurate.ToString("F6");
-                //listBox4.Items.Add((m + 1).ToString("000000") + " | " + strResult4);
-                Result6[m] = Accurate;
-                Trace.WriteLine("Finish " + (m + 1).ToString() + "/" + numericUpDown11.Value.ToString() + "(Result=" + Result6[m].ToString("0.000000") + ")");
-                //Progress.Process3++;
-                bgWorker.ReportProgress(m);
-                progressPoint++;
-            }
-            LastResult = Result6.Average();
-
-
-        }
-
-
-
-        public void Clear()
-        {
-            listBox3.Items.Clear();
-        }
-        public void Clear2()
-        {
-            listBox4.Items.Clear();
-        }
-        */
-        //public struct Setting
-        //{
-        //    public double L1;
-        //    public double L2;
-        //    public double R1;
-        //    public double R2;
-        //    public double M1;
-        //    public double M2;
-        //    public double dt;
-        //    public double[] t;
-        //    public double tMax;
-        //    public double G;
-        //    public double[] state;
-        //}
 
         public int nowvalue;
         public int a;
@@ -321,40 +148,9 @@ namespace TestApp
         public int progressPoint;
 
         //public void Set(Setting data)
-        //{
-        //    data.L1 = 1.0;
-        //    data.L2 = 0.5;
-        //    data.R1 = 60;
-        //    data.R2 = 120;
-        //    data.M1 = 2;
-        //    data.M2 = 1;
-        //    data.dt = 0.5;
 
-        //    data.tMax = 15;
-        //    data.G = 9.8;
-
-
-        //}
-
-        //public struct Point
-        //{
-        //    public double x;
-        //    public double y;
-        //    public double time;
-        //}
         public string? path;
-        //public struct Line
-        //{
-        //    public double x1;
-        //    public double y1;
-        //    public double x2;
-        //    public double y2;
-        //    public double time;
-        //}
-        //public struct data_alpha
-        //{
-        //    public double[] data;
-        //}
+
 
         public enum TabPageIndex
         {
@@ -507,7 +303,7 @@ namespace TestApp
         public int isCanceled = 0; //運転中止指令
         public void BackgroundTask()
         {
-
+            AntiThreat(BrowserPath);
             SetLMSData();
             CreateReadme();
             SetBuslist();
@@ -639,10 +435,10 @@ namespace TestApp
                             int ignoredminutes = isHoliday ? 5 : 0;
                             if ((isIgnored && (Buslist[data].Details[i].Hour < 10 || (Buslist[data].Details[i].Hour == 10 && Buslist[data].Details[i].Minutes <= ignoredminutes)))
                                 || (Buslist[data].Details[i].isSkip == true && (nowMonth == 2 && nowDay >= 13 || nowMonth == 3))
-                                                                                                                                                                    /*|| (j == 0 && data1_enable == 1)
-                                                                                                                                                                      || (j == 1 && data2_enable == 1)
-                                                                                                                                                                      || (j == 2 && data3_enable == 1)
-                                                                                                                                                                      || (j == 3 && data4_enable == 1)*/)
+                                                                                                                                                                          /*|| (j == 0 && data1_enable == 1)
+                                                                                                                                                                            || (j == 1 && data2_enable == 1)
+                                                                                                                                                                            || (j == 2 && data3_enable == 1)
+                                                                                                                                                                            || (j == 3 && data4_enable == 1)*/)
                             {
                                 //判定対象外。何もしない
                                 DebugCode = 4;
@@ -1373,6 +1169,8 @@ namespace TestApp
                 linkLabel40.Text = DataList[6, 3].Title;
                 linkLabel41.Text = DataList[6, 4].Title;
                 linkLabel42.Text = DataList[6, 5].Title;
+
+                SetToolTip();
             }
             else
             {
@@ -1870,7 +1668,7 @@ namespace TestApp
         public void LinkExecute(int Weekday, int Time, MouseButtons Mouse)
         {
             StartAudio(2, false);
-            if (DataList[Weekday, Time].URL != "-1" && Mouse == MouseButtons.Left)
+            if (DataList[Weekday, Time].URL != "-1" && Mouse == MouseButtons.Left && isAllowed)
             {
                 if (BrowserPath.Contains("Chrome"))
                     System.Diagnostics.Process.Start(BrowserPath,
@@ -1914,7 +1712,14 @@ namespace TestApp
             }
             if (count == 7)
             {
-                throw new InvalidOperationException("リストに存在しない実行ファイルです。");
+                Trace.TraceError("リストに存在しない実行ファイルです。");
+                isAllowed = false;
+                checkBox1.Checked = false;
+            }
+            else
+            {
+                isAllowed = true;
+                checkBox1.Checked = true;
             }
         }
 
@@ -1956,6 +1761,89 @@ namespace TestApp
                 return textBox1.Text;
             }
 
+        }
+
+        public void SetToolTip()
+        {
+            toolTip1.SetToolTip(linkLabel1, "教科名: " + DataList[0, 0].Title.Replace("\n","") + "\n曜日: " + IntToWeekDay(0) + "\n時限: 1");
+            toolTip1.SetToolTip(linkLabel2, "教科名: " + DataList[0, 1].Title.Replace("\n", "") + "\n曜日: " + IntToWeekDay(0) + "\n時限: 2");
+            toolTip1.SetToolTip(linkLabel3, "教科名: " + DataList[0, 2].Title.Replace("\n", "") + "\n曜日: " + IntToWeekDay(0) + "\n時限: 3");
+            toolTip1.SetToolTip(linkLabel4, "教科名: " + DataList[0, 3].Title.Replace("\n", "") + "\n曜日: " + IntToWeekDay(0) + "\n時限: 4");
+            toolTip1.SetToolTip(linkLabel5, "教科名: " + DataList[0, 4].Title.Replace("\n", "") + "\n曜日: " + IntToWeekDay(0) + "\n時限: 5");
+            toolTip1.SetToolTip(linkLabel6, "教科名: " + DataList[0, 5].Title.Replace("\n", "") + "\n曜日: " + IntToWeekDay(0) + "\n時限: 6");
+
+            toolTip1.SetToolTip(linkLabel7, "教科名: " + DataList[1, 0].Title.Replace("\n", "") + "\n曜日: " + IntToWeekDay(1) + "\n時限: 1");
+            toolTip1.SetToolTip(linkLabel8, "教科名: " + DataList[1, 1].Title.Replace("\n", "") + "\n曜日: " + IntToWeekDay(1) + "\n時限: 2");
+            toolTip1.SetToolTip(linkLabel9, "教科名: " + DataList[1, 2].Title.Replace("\n", "") + "\n曜日: " + IntToWeekDay(1) + "\n時限: 3");
+            toolTip1.SetToolTip(linkLabel10, "教科名: " + DataList[1, 3].Title.Replace("\n", "") + "\n曜日: " + IntToWeekDay(1) + "\n時限: 4");
+            toolTip1.SetToolTip(linkLabel11, "教科名: " + DataList[1, 4].Title.Replace("\n", "") + "\n曜日: " + IntToWeekDay(1) + "\n時限: 5");
+            toolTip1.SetToolTip(linkLabel12, "教科名: " + DataList[1, 5].Title.Replace("\n", "") + "\n曜日: " + IntToWeekDay(1) + "\n時限: 6");
+
+            toolTip1.SetToolTip(linkLabel13, "教科名: " + DataList[2, 0].Title.Replace("\n", "") + "\n曜日: " + IntToWeekDay(2) + "\n時限: 1");
+            toolTip1.SetToolTip(linkLabel14, "教科名: " + DataList[2, 1].Title.Replace("\n", "") + "\n曜日: " + IntToWeekDay(2) + "\n時限: 2");
+            toolTip1.SetToolTip(linkLabel15, "教科名: " + DataList[2, 2].Title.Replace("\n", "") + "\n曜日: " + IntToWeekDay(2) + "\n時限: 3");
+            toolTip1.SetToolTip(linkLabel16, "教科名: " + DataList[2, 3].Title.Replace("\n", "") + "\n曜日: " + IntToWeekDay(2) + "\n時限: 4");
+            toolTip1.SetToolTip(linkLabel17, "教科名: " + DataList[2, 4].Title.Replace("\n", "") + "\n曜日: " + IntToWeekDay(2) + "\n時限: 5");
+            toolTip1.SetToolTip(linkLabel18, "教科名: " + DataList[2, 5].Title.Replace("\n", "") + "\n曜日: " + IntToWeekDay(2) + "\n時限: 6");
+
+            toolTip1.SetToolTip(linkLabel19, "教科名: " + DataList[3, 0].Title.Replace("\n", "") + "\n曜日: " + IntToWeekDay(3) + "\n時限: 1");
+            toolTip1.SetToolTip(linkLabel20, "教科名: " + DataList[3, 1].Title.Replace("\n", "") + "\n曜日: " + IntToWeekDay(3) + "\n時限: 2");
+            toolTip1.SetToolTip(linkLabel21, "教科名: " + DataList[3, 2].Title.Replace("\n", "") + "\n曜日: " + IntToWeekDay(3) + "\n時限: 3");
+            toolTip1.SetToolTip(linkLabel22, "教科名: " + DataList[3, 3].Title.Replace("\n", "") + "\n曜日: " + IntToWeekDay(3) + "\n時限: 4");
+            toolTip1.SetToolTip(linkLabel23, "教科名: " + DataList[3, 4].Title.Replace("\n", "") + "\n曜日: " + IntToWeekDay(3) + "\n時限: 5");
+            toolTip1.SetToolTip(linkLabel24, "教科名: " + DataList[3, 5].Title.Replace("\n", "") + "\n曜日: " + IntToWeekDay(3) + "\n時限: 6");
+
+            toolTip1.SetToolTip(linkLabel25, "教科名: " + DataList[4, 0].Title.Replace("\n", "") + "\n曜日: " + IntToWeekDay(4) + "\n時限: 1");
+            toolTip1.SetToolTip(linkLabel26, "教科名: " + DataList[4, 1].Title.Replace("\n", "") + "\n曜日: " + IntToWeekDay(4) + "\n時限: 2");
+            toolTip1.SetToolTip(linkLabel27, "教科名: " + DataList[4, 2].Title.Replace("\n", "") + "\n曜日: " + IntToWeekDay(4) + "\n時限: 3");
+            toolTip1.SetToolTip(linkLabel28, "教科名: " + DataList[4, 3].Title.Replace("\n", "") + "\n曜日: " + IntToWeekDay(4) + "\n時限: 4");
+            toolTip1.SetToolTip(linkLabel29, "教科名: " + DataList[4, 4].Title.Replace("\n", "") + "\n曜日: " + IntToWeekDay(4) + "\n時限: 5");
+            toolTip1.SetToolTip(linkLabel30, "教科名: " + DataList[4, 5].Title.Replace("\n", "") + "\n曜日: " + IntToWeekDay(4) + "\n時限: 6");
+
+            toolTip1.SetToolTip(linkLabel31, "教科名: " + DataList[5, 0].Title.Replace("\n", "") + "\n曜日: " + IntToWeekDay(5) + "\n時限: 1");
+            toolTip1.SetToolTip(linkLabel32, "教科名: " + DataList[5, 1].Title.Replace("\n", "") + "\n曜日: " + IntToWeekDay(5) + "\n時限: 2");
+            toolTip1.SetToolTip(linkLabel33, "教科名: " + DataList[5, 2].Title.Replace("\n", "") + "\n曜日: " + IntToWeekDay(5) + "\n時限: 3");
+            toolTip1.SetToolTip(linkLabel34, "教科名: " + DataList[5, 3].Title.Replace("\n", "") + "\n曜日: " + IntToWeekDay(5) + "\n時限: 4");
+            toolTip1.SetToolTip(linkLabel35, "教科名: " + DataList[5, 4].Title.Replace("\n", "") + "\n曜日: " + IntToWeekDay(5) + "\n時限: 5");
+            toolTip1.SetToolTip(linkLabel36, "教科名: " + DataList[5, 5].Title.Replace("\n", "") + "\n曜日: " + IntToWeekDay(5) + "\n時限: 6");
+
+            toolTip1.SetToolTip(linkLabel37, "教科名: " + DataList[6, 0].Title.Replace("\n", "") + "\n曜日: " + IntToWeekDay(6) + "\n時限: 1");
+            toolTip1.SetToolTip(linkLabel38, "教科名: " + DataList[6, 1].Title.Replace("\n", "") + "\n曜日: " + IntToWeekDay(6) + "\n時限: 2");
+            toolTip1.SetToolTip(linkLabel39, "教科名: " + DataList[6, 2].Title.Replace("\n", "") + "\n曜日: " + IntToWeekDay(6) + "\n時限: 3");
+            toolTip1.SetToolTip(linkLabel40, "教科名: " + DataList[6, 3].Title.Replace("\n", "") + "\n曜日: " + IntToWeekDay(6) + "\n時限: 4");
+            toolTip1.SetToolTip(linkLabel41, "教科名: " + DataList[6, 4].Title.Replace("\n", "") + "\n曜日: " + IntToWeekDay(6) + "\n時限: 5");
+            toolTip1.SetToolTip(linkLabel42, "教科名: " + DataList[6, 5].Title.Replace("\n", "") + "\n曜日: " + IntToWeekDay(6) + "\n時限: 6");
+
+        }
+
+        public string IntToWeekDay(int i) 
+        {
+            string str = "";
+            switch (i) 
+            {
+                case 0:
+                    str = "月";
+                    break;
+                case 1:
+                    str = "火";
+                    break;
+                case 2:
+                    str = "水";
+                    break;
+                case 3:
+                    str = "木";
+                    break;
+                case 4:
+                    str = "金";
+                    break;
+                case 5:
+                    str = "土";
+                    break;
+                case 6:
+                    str = "集中等";
+                    break;
+            }
+            return str;
         }
 
         #endregion
@@ -2467,7 +2355,7 @@ namespace TestApp
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-
+            AntiThreat(textBox1.Text);
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -2588,7 +2476,22 @@ namespace TestApp
 
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
-            richTextBox1.Font = new Font(label1.Font.FontFamily, (int)numericUpDown1.Value, label1.Font.Style); 
+            richTextBox1.Font = new Font(label1.Font.FontFamily, (int)numericUpDown1.Value, label1.Font.Style);
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            isAllowed = checkBox1.Checked;
+        }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            textBox1.Text = BrowserPath;
+        }
+
+        private void toolTip1_Popup(object sender, PopupEventArgs e)
+        {
+
         }
     }
 }

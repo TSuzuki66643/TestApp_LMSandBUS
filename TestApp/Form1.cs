@@ -435,10 +435,10 @@ namespace TestApp
                             int ignoredminutes = isHoliday ? 5 : 0;
                             if ((isIgnored && (Buslist[data].Details[i].Hour < 10 || (Buslist[data].Details[i].Hour == 10 && Buslist[data].Details[i].Minutes <= ignoredminutes)))
                                 || (Buslist[data].Details[i].isSkip == true && (nowMonth == 2 && nowDay >= 13 || nowMonth == 3))
-                                                                                                                                                                          /*|| (j == 0 && data1_enable == 1)
-                                                                                                                                                                            || (j == 1 && data2_enable == 1)
-                                                                                                                                                                            || (j == 2 && data3_enable == 1)
-                                                                                                                                                                            || (j == 3 && data4_enable == 1)*/)
+                                                                                                                                                                              /*|| (j == 0 && data1_enable == 1)
+                                                                                                                                                                                || (j == 1 && data2_enable == 1)
+                                                                                                                                                                                || (j == 2 && data3_enable == 1)
+                                                                                                                                                                                || (j == 3 && data4_enable == 1)*/)
                             {
                                 //判定対象外。何もしない
                                 DebugCode = 4;
@@ -1765,7 +1765,7 @@ namespace TestApp
 
         public void SetToolTip()
         {
-            toolTip1.SetToolTip(linkLabel1, "教科名: " + DataList[0, 0].Title.Replace("\n","") + "\n曜日: " + IntToWeekDay(0) + "\n時限: 1");
+            toolTip1.SetToolTip(linkLabel1, "教科名: " + DataList[0, 0].Title.Replace("\n", "") + "\n曜日: " + IntToWeekDay(0) + "\n時限: 1");
             toolTip1.SetToolTip(linkLabel2, "教科名: " + DataList[0, 1].Title.Replace("\n", "") + "\n曜日: " + IntToWeekDay(0) + "\n時限: 2");
             toolTip1.SetToolTip(linkLabel3, "教科名: " + DataList[0, 2].Title.Replace("\n", "") + "\n曜日: " + IntToWeekDay(0) + "\n時限: 3");
             toolTip1.SetToolTip(linkLabel4, "教科名: " + DataList[0, 3].Title.Replace("\n", "") + "\n曜日: " + IntToWeekDay(0) + "\n時限: 4");
@@ -1816,10 +1816,10 @@ namespace TestApp
 
         }
 
-        public string IntToWeekDay(int i) 
+        public string IntToWeekDay(int i)
         {
             string str = "";
-            switch (i) 
+            switch (i)
             {
                 case 0:
                     str = "月";
@@ -2471,7 +2471,7 @@ namespace TestApp
         private void button12_Click(object sender, EventArgs e)
         {
             string str = richTextBox1.Text;
-            File.WriteAllText(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + @"\\Documents\\TextExport.txt", str);
+            File.WriteAllText(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + @"\\Documents\\" + textBox2.Text + @".txt", str);
         }
 
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
@@ -2492,6 +2492,17 @@ namespace TestApp
         private void toolTip1_Popup(object sender, PopupEventArgs e)
         {
 
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button14_Click(object sender, EventArgs e)
+        {
+            StartAudio(2, false);
+            LinkExecute("https://eduweb.sta.kanazawa-u.ac.jp/Portal/StudentApp/Attendance/AttendList.aspx");
         }
     }
 }

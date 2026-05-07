@@ -91,6 +91,7 @@ namespace TestApp
             tabPage1 = new TabPage();
             checkBox1 = new CheckBox();
             groupBox2 = new GroupBox();
+            button14 = new Button();
             button3 = new Button();
             button2 = new Button();
             button1 = new Button();
@@ -169,6 +170,9 @@ namespace TestApp
             label16 = new Label();
             listBox1 = new ListBox();
             tabPage4 = new TabPage();
+            label19 = new Label();
+            label18 = new Label();
+            textBox2 = new TextBox();
             label17 = new Label();
             numericUpDown1 = new NumericUpDown();
             button12 = new Button();
@@ -970,15 +974,27 @@ namespace TestApp
             // 
             // groupBox2
             // 
+            groupBox2.Controls.Add(button14);
             groupBox2.Controls.Add(button3);
             groupBox2.Controls.Add(button2);
             groupBox2.Controls.Add(button1);
-            groupBox2.Location = new Point(1491, 471);
+            groupBox2.Location = new Point(1491, 421);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(228, 192);
+            groupBox2.Size = new Size(228, 242);
             groupBox2.TabIndex = 65;
             groupBox2.TabStop = false;
             groupBox2.Text = "ツール";
+            // 
+            // button14
+            // 
+            button14.Location = new Point(14, 195);
+            button14.Name = "button14";
+            button14.Size = new Size(200, 34);
+            button14.TabIndex = 59;
+            button14.Text = "出席情報";
+            toolTip1.SetToolTip(button14, "出席情報を表示します。\r\n(学務情報サービスが開かれます)");
+            button14.UseVisualStyleBackColor = true;
+            button14.Click += button14_Click;
             // 
             // button3
             // 
@@ -1825,6 +1841,9 @@ namespace TestApp
             // 
             // tabPage4
             // 
+            tabPage4.Controls.Add(label19);
+            tabPage4.Controls.Add(label18);
+            tabPage4.Controls.Add(textBox2);
             tabPage4.Controls.Add(label17);
             tabPage4.Controls.Add(numericUpDown1);
             tabPage4.Controls.Add(button12);
@@ -1836,6 +1855,33 @@ namespace TestApp
             tabPage4.TabIndex = 9;
             tabPage4.Text = "TextMemo";
             tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // label19
+            // 
+            label19.AutoSize = true;
+            label19.Location = new Point(611, 12);
+            label19.Name = "label19";
+            label19.Size = new Size(43, 25);
+            label19.TabIndex = 6;
+            label19.Text = ".txt";
+            // 
+            // label18
+            // 
+            label18.AutoSize = true;
+            label18.Location = new Point(311, 12);
+            label18.Name = "label18";
+            label18.Size = new Size(138, 25);
+            label18.TabIndex = 5;
+            label18.Text = "保存ファイル名";
+            // 
+            // textBox2
+            // 
+            textBox2.Location = new Point(464, 6);
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(150, 34);
+            textBox2.TabIndex = 4;
+            textBox2.Text = "textMemo";
+            textBox2.TextChanged += textBox2_TextChanged;
             // 
             // label17
             // 
@@ -2101,5 +2147,9 @@ namespace TestApp
         private CheckBox checkBox1;
         private Button button13;
         private ToolTip toolTip1;
+        private Label label19;
+        private Label label18;
+        private TextBox textBox2;
+        private Button button14;
     }
 }

@@ -178,6 +178,12 @@ namespace TestApp
             button12 = new Button();
             richTextBox1 = new RichTextBox();
             tabPage2 = new TabPage();
+            label22 = new Label();
+            label21 = new Label();
+            label20 = new Label();
+            textBox4 = new TextBox();
+            textBox3 = new TextBox();
+            button15 = new Button();
             webView21 = new Microsoft.Web.WebView2.WinForms.WebView2();
             contextMenuStrip2 = new ContextMenuStrip(components);
             ファイルを実行ToolStripMenuItem = new ToolStripMenuItem();
@@ -952,10 +958,10 @@ namespace TestApp
             tabPage1.Controls.Add(linkLabel2);
             tabPage1.Controls.Add(linkLabel1);
             tabPage1.Controls.Add(label1);
-            tabPage1.Location = new Point(4, 34);
+            tabPage1.Location = new Point(4, 35);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(1749, 679);
+            tabPage1.Size = new Size(1749, 678);
             tabPage1.TabIndex = 6;
             tabPage1.Text = "LMSジャンパー";
             tabPage1.UseVisualStyleBackColor = true;
@@ -1922,14 +1928,72 @@ namespace TestApp
             // 
             // tabPage2
             // 
+            tabPage2.Controls.Add(label22);
+            tabPage2.Controls.Add(label21);
+            tabPage2.Controls.Add(label20);
+            tabPage2.Controls.Add(textBox4);
+            tabPage2.Controls.Add(textBox3);
+            tabPage2.Controls.Add(button15);
             tabPage2.Controls.Add(webView21);
-            tabPage2.Location = new Point(4, 35);
+            tabPage2.Location = new Point(4, 34);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(1749, 678);
+            tabPage2.Size = new Size(1749, 679);
             tabPage2.TabIndex = 7;
-            tabPage2.Text = "ReadMe";
+            tabPage2.Text = "Web (Beta)";
             tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // label22
+            // 
+            label22.AutoSize = true;
+            label22.Location = new Point(1180, 30);
+            label22.Name = "label22";
+            label22.Size = new Size(30, 25);
+            label22.TabIndex = 6;
+            label22.Text = "ID";
+            // 
+            // label21
+            // 
+            label21.AutoSize = true;
+            label21.Location = new Point(1174, 91);
+            label21.Name = "label21";
+            label21.Size = new Size(51, 25);
+            label21.TabIndex = 5;
+            label21.Text = "Pass";
+            // 
+            // label20
+            // 
+            label20.AutoSize = true;
+            label20.Location = new Point(1174, 30);
+            label20.Name = "label20";
+            label20.Size = new Size(0, 25);
+            label20.TabIndex = 4;
+            // 
+            // textBox4
+            // 
+            textBox4.Location = new Point(1267, 88);
+            textBox4.Name = "textBox4";
+            textBox4.Size = new Size(150, 34);
+            textBox4.TabIndex = 3;
+            textBox4.TextChanged += textBox4_TextChanged;
+            // 
+            // textBox3
+            // 
+            textBox3.Location = new Point(1267, 27);
+            textBox3.Name = "textBox3";
+            textBox3.Size = new Size(150, 34);
+            textBox3.TabIndex = 2;
+            textBox3.TextChanged += textBox3_TextChanged;
+            // 
+            // button15
+            // 
+            button15.Location = new Point(1463, 57);
+            button15.Name = "button15";
+            button15.Size = new Size(137, 34);
+            button15.TabIndex = 1;
+            button15.Text = "passExecute";
+            button15.UseVisualStyleBackColor = true;
+            button15.Click += button15_Click;
             // 
             // webView21
             // 
@@ -1938,7 +2002,7 @@ namespace TestApp
             webView21.DefaultBackgroundColor = Color.White;
             webView21.Location = new Point(6, 6);
             webView21.Name = "webView21";
-            webView21.Size = new Size(1737, 667);
+            webView21.Size = new Size(1145, 667);
             webView21.TabIndex = 0;
             webView21.ZoomFactor = 1D;
             // 
@@ -1993,6 +2057,7 @@ namespace TestApp
             tabPage4.PerformLayout();
             ((ISupportInitialize)numericUpDown1).EndInit();
             tabPage2.ResumeLayout(false);
+            tabPage2.PerformLayout();
             ((ISupportInitialize)webView21).EndInit();
             contextMenuStrip2.ResumeLayout(false);
             ResumeLayout(false);
@@ -2151,5 +2216,11 @@ namespace TestApp
         private Label label18;
         private TextBox textBox2;
         private Button button14;
+        private Button button15;
+        private Label label22;
+        private Label label21;
+        private Label label20;
+        private TextBox textBox4;
+        private TextBox textBox3;
     }
 }

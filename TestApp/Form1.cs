@@ -43,8 +43,17 @@ namespace TestApp
             Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
             //設定ファイル読み込み
             var parser = new FileIniDataParser();
-
-            IniParser.Model.IniData data = parser.ReadFile("Config.ini");
+            IniParser.Model.IniData data = new IniParser.Model.IniData();
+            IniParser.Model.IniData data2 = new IniParser.Model.IniData();
+            try
+            {
+                data = parser.ReadFile("Config.ini");
+                data2 = parser.ReadFile("idData.ini");
+            }
+            catch (Exception f)
+            {
+                Trace.TraceError("ファイルが見つかりませんでしたが続行します。");
+            }
 
             StartPage = int.Parse(data["General"]["StartTab"]);
             Settings = data;
@@ -59,6 +68,14 @@ namespace TestApp
                 BrowserPath = data["Browser"]["BrowserPath"];
             }
             textBox1.Text = BrowserPath;
+            if (data2["Main"]["ID"] != null)
+            {
+                textBox3.Text = data2["Main"]["ID"];
+            }
+            if (data2["Main"]["Pass"] != null)
+            {
+                textBox4.Text = data2["Main"]["Pass"];
+            }
 
 
             await webView21.EnsureCoreWebView2Async();
@@ -435,10 +452,10 @@ namespace TestApp
                             int ignoredminutes = isHoliday ? 5 : 0;
                             if ((isIgnored && (Buslist[data].Details[i].Hour < 10 || (Buslist[data].Details[i].Hour == 10 && Buslist[data].Details[i].Minutes <= ignoredminutes)))
                                 || (Buslist[data].Details[i].isSkip == true && (nowMonth == 2 && nowDay >= 13 || nowMonth == 3))
-                                                                                                                                                                              /*|| (j == 0 && data1_enable == 1)
-                                                                                                                                                                                || (j == 1 && data2_enable == 1)
-                                                                                                                                                                                || (j == 2 && data3_enable == 1)
-                                                                                                                                                                                || (j == 3 && data4_enable == 1)*/)
+                                                                                                                                                                                        /*|| (j == 0 && data1_enable == 1)
+                                                                                                                                                                                          || (j == 1 && data2_enable == 1)
+                                                                                                                                                                                          || (j == 2 && data3_enable == 1)
+                                                                                                                                                                                          || (j == 3 && data4_enable == 1)*/)
                             {
                                 //判定対象外。何もしない
                                 DebugCode = 4;
@@ -1053,7 +1070,7 @@ namespace TestApp
             public string URL = URL;
         }
 
-
+        public static int[,,] attendstate = new int[7, 6, 2];
         public static LMSData[,] DataList = new LMSData[7, 6];
         public int returns = 0;
         public enum LoadingFailureIndicator
@@ -1862,12 +1879,28 @@ namespace TestApp
 
         public void CreateReadme()
         {
+            /*
             var text = File.ReadAllText(@"readme.md");
             var pipeline = new MarkdownPipelineBuilder().UseAdvancedExtensions().Build();
             var result = Markdig.Markdown.ToHtml(text, pipeline);
             webView21.BackColor = Color.White;
             webView21.CoreWebView2.Profile.PreferredColorScheme = CoreWebView2PreferredColorScheme.Light;
             webView21.CoreWebView2.NavigateToString(result);
+            */
+
+            //実験: 学務情報サービスに入れるか？ →ログイン画面まで実装
+            webView21.BackColor = Color.White;
+            webView21.CoreWebView2.Profile.PreferredColorScheme = CoreWebView2PreferredColorScheme.Light;
+            webView21.CoreWebView2.Navigate("https://eduweb.sta.kanazawa-u.ac.jp/Portal/StudentApp/Top.aspx");
+
+            if (webView21.CoreWebView2.Source.Contains("SSO"))
+            {
+                string ID = "sui69150";
+                string Password = "%4uY7J=f";
+                webView21.ExecuteScriptAsync("document.getElementsByName('j_username').item(0).value = '" + ID + "';");
+                webView21.ExecuteScriptAsync("document.getElementsByName('j_password').item(0).value = '" + ID + "';");
+            }
+
         }
         #endregion
 
@@ -2504,5 +2537,40 @@ namespace TestApp
             StartAudio(2, false);
             LinkExecute("https://eduweb.sta.kanazawa-u.ac.jp/Portal/StudentApp/Attendance/AttendList.aspx");
         }
+
+        private void button15_Click(object sender, EventArgs e)
+        {
+            //試験運用
+            if (webView21.CoreWebView2.Source.Contains("SSO"))
+            {
+                string ID = textBox3.Text;
+                string Password = textBox4.Text;
+                webView21.ExecuteScriptAsync("document.getElementsByName('j_username').item(0).value = '" + ID + "';");
+                webView21.ExecuteScriptAsync("document.getElementsByName('j_password').item(0).value = '" + Password + "';");
+                webView21.ExecuteScriptAsync("document.getElementsByName('_eventId_proceed').item(0).click();");
+            }
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+            IDtoINI(textBox3.Text, textBox4.Text);
+        }
+
+        private void textBox4_TextChanged(object sender, EventArgs e)
+        {
+            IDtoINI(textBox3.Text, textBox4.Text);
+        }
+
+        public void IDtoINI(string ID, string Pass)
+        {
+            IniParser.Model.IniData data = new IniParser.Model.IniData();
+            data["Main"]["ID"] = ID;
+            data["Main"]["Pass"] = Pass;
+
+            var parser = new FileIniDataParser();
+            parser.WriteFile("idData.ini", data);
+        }
+
+       
     }
 }

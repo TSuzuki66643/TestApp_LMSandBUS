@@ -89,8 +89,15 @@ namespace TestApp
             label69 = new Label();
             label70 = new Label();
             tabPage1 = new TabPage();
+            groupBox5 = new GroupBox();
             checkBox1 = new CheckBox();
             groupBox2 = new GroupBox();
+            button23 = new Button();
+            button22 = new Button();
+            button21 = new Button();
+            button20 = new Button();
+            button19 = new Button();
+            button18 = new Button();
             button14 = new Button();
             button3 = new Button();
             button2 = new Button();
@@ -178,6 +185,15 @@ namespace TestApp
             button12 = new Button();
             richTextBox1 = new RichTextBox();
             tabPage2 = new TabPage();
+            label90 = new Label();
+            numericUpDown2 = new NumericUpDown();
+            label89 = new Label();
+            button36 = new Button();
+            label82 = new Label();
+            comboBox3 = new ComboBox();
+            button17 = new Button();
+            label23 = new Label();
+            button16 = new Button();
             label22 = new Label();
             label21 = new Label();
             label20 = new Label();
@@ -185,11 +201,83 @@ namespace TestApp
             textBox3 = new TextBox();
             button15 = new Button();
             webView21 = new Microsoft.Web.WebView2.WinForms.WebView2();
+            tabPage5 = new TabPage();
+            label81 = new Label();
+            comboBox2 = new ComboBox();
+            progressBar1 = new ProgressBar();
+            label28 = new Label();
+            label27 = new Label();
+            label26 = new Label();
+            label25 = new Label();
+            label24 = new Label();
+            tabPage7 = new TabPage();
+            groupBox4 = new GroupBox();
+            button35 = new Button();
+            listBox2 = new ListBox();
+            button31 = new Button();
+            button27 = new Button();
+            button28 = new Button();
+            button25 = new Button();
+            button26 = new Button();
+            groupBox3 = new GroupBox();
+            label88 = new Label();
+            button34 = new Button();
+            button33 = new Button();
+            button32 = new Button();
+            textBox5 = new TextBox();
+            label83 = new Label();
+            label84 = new Label();
+            textBox6 = new TextBox();
+            label87 = new Label();
+            label86 = new Label();
+            label85 = new Label();
+            button30 = new Button();
+            button29 = new Button();
+            button24 = new Button();
+            tabPage8 = new TabPage();
+            button39 = new Button();
+            groupBox6 = new GroupBox();
+            label99 = new Label();
+            textBox10 = new TextBox();
+            button38 = new Button();
+            dateTimePicker1 = new DateTimePicker();
+            label98 = new Label();
+            label97 = new Label();
+            textBox9 = new TextBox();
+            label92 = new Label();
+            button37 = new Button();
+            textBox8 = new TextBox();
+            label93 = new Label();
+            label91 = new Label();
+            textBox7 = new TextBox();
+            label94 = new Label();
+            label95 = new Label();
+            label96 = new Label();
+            button45 = new Button();
+            button46 = new Button();
+            button47 = new Button();
+            groupBox7 = new GroupBox();
+            button50 = new Button();
+            button49 = new Button();
+            button40 = new Button();
+            listBox3 = new ListBox();
+            button41 = new Button();
+            button42 = new Button();
+            button48 = new Button();
+            button43 = new Button();
+            button44 = new Button();
             contextMenuStrip2 = new ContextMenuStrip(components);
             ファイルを実行ToolStripMenuItem = new ToolStripMenuItem();
             項目を削除ToolStripMenuItem = new ToolStripMenuItem();
             backgroundWorker1 = new BackgroundWorker();
             toolTip1 = new ToolTip(components);
+            toolStrip1 = new ToolStrip();
+            toolStripLabel1 = new ToolStripDropDownButton();
+            設定ToolStripMenuItem1 = new ToolStripMenuItem();
+            設定ファイルを開くToolStripMenuItem = new ToolStripMenuItem();
+            statusStrip1 = new StatusStrip();
+            toolStripStatusLabel1 = new ToolStripStatusLabel();
+            imageList1 = new ImageList(components);
             tabControl1.SuspendLayout();
             tabPage6.SuspendLayout();
             tabPage1.SuspendLayout();
@@ -200,8 +288,18 @@ namespace TestApp
             tabPage4.SuspendLayout();
             ((ISupportInitialize)numericUpDown1).BeginInit();
             tabPage2.SuspendLayout();
+            ((ISupportInitialize)numericUpDown2).BeginInit();
             ((ISupportInitialize)webView21).BeginInit();
+            tabPage5.SuspendLayout();
+            tabPage7.SuspendLayout();
+            groupBox4.SuspendLayout();
+            groupBox3.SuspendLayout();
+            tabPage8.SuspendLayout();
+            groupBox6.SuspendLayout();
+            groupBox7.SuspendLayout();
             contextMenuStrip2.SuspendLayout();
+            toolStrip1.SuspendLayout();
+            statusStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // tabControl1
@@ -211,11 +309,15 @@ namespace TestApp
             tabControl1.Controls.Add(tabPage3);
             tabControl1.Controls.Add(tabPage4);
             tabControl1.Controls.Add(tabPage2);
-            tabControl1.Location = new Point(12, 12);
+            tabControl1.Controls.Add(tabPage5);
+            tabControl1.Controls.Add(tabPage7);
+            tabControl1.Controls.Add(tabPage8);
+            tabControl1.Location = new Point(12, 38);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(1757, 717);
+            tabControl1.Size = new Size(1999, 709);
             tabControl1.TabIndex = 14;
+            toolTip1.SetToolTip(tabControl1, "入力された項目をリストに追加します。");
             tabControl1.SelectedIndexChanged += TabControl1_SelectedIndexChanged;
             // 
             // tabPage6
@@ -277,7 +379,7 @@ namespace TestApp
             tabPage6.Location = new Point(4, 34);
             tabPage6.Name = "tabPage6";
             tabPage6.Padding = new Padding(3);
-            tabPage6.Size = new Size(1749, 679);
+            tabPage6.Size = new Size(1991, 671);
             tabPage6.TabIndex = 5;
             tabPage6.Text = "おまけその２";
             tabPage6.UseVisualStyleBackColor = true;
@@ -897,6 +999,7 @@ namespace TestApp
             // 
             // tabPage1
             // 
+            tabPage1.Controls.Add(groupBox5);
             tabPage1.Controls.Add(checkBox1);
             tabPage1.Controls.Add(groupBox2);
             tabPage1.Controls.Add(groupBox1);
@@ -961,10 +1064,19 @@ namespace TestApp
             tabPage1.Location = new Point(4, 35);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(1749, 678);
+            tabPage1.Size = new Size(1991, 670);
             tabPage1.TabIndex = 6;
             tabPage1.Text = "LMSジャンパー";
             tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // groupBox5
+            // 
+            groupBox5.Location = new Point(1744, 47);
+            groupBox5.Name = "groupBox5";
+            groupBox5.Size = new Size(213, 276);
+            groupBox5.TabIndex = 67;
+            groupBox5.TabStop = false;
+            groupBox5.Text = "??? (Coming Soon...)";
             // 
             // checkBox1
             // 
@@ -980,20 +1092,92 @@ namespace TestApp
             // 
             // groupBox2
             // 
+            groupBox2.Controls.Add(button23);
+            groupBox2.Controls.Add(button22);
+            groupBox2.Controls.Add(button21);
+            groupBox2.Controls.Add(button20);
+            groupBox2.Controls.Add(button19);
+            groupBox2.Controls.Add(button18);
             groupBox2.Controls.Add(button14);
             groupBox2.Controls.Add(button3);
             groupBox2.Controls.Add(button2);
             groupBox2.Controls.Add(button1);
-            groupBox2.Location = new Point(1491, 421);
+            groupBox2.Location = new Point(1491, 363);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(228, 242);
+            groupBox2.Size = new Size(484, 300);
             groupBox2.TabIndex = 65;
             groupBox2.TabStop = false;
             groupBox2.Text = "ツール";
             // 
+            // button23
+            // 
+            button23.Location = new Point(14, 249);
+            button23.Name = "button23";
+            button23.Size = new Size(200, 34);
+            button23.TabIndex = 65;
+            button23.Text = "成績情報";
+            toolTip1.SetToolTip(button23, "成績情報を表示します。\r\n(学務情報サービスが開かれます。)");
+            button23.UseVisualStyleBackColor = true;
+            button23.Click += button23_Click;
+            // 
+            // button22
+            // 
+            button22.Location = new Point(266, 249);
+            button22.Name = "button22";
+            button22.Size = new Size(200, 34);
+            button22.TabIndex = 64;
+            button22.Text = "設定のエクスポート";
+            toolTip1.SetToolTip(button22, ".iniファイルを別のディレクトリにコピーします。\r\nコピー先はドキュメントフォルダ内ののLMS_Backupフォルダです");
+            button22.UseVisualStyleBackColor = true;
+            button22.Click += button22_Click;
+            // 
+            // button21
+            // 
+            button21.Location = new Point(266, 141);
+            button21.Name = "button21";
+            button21.Size = new Size(200, 34);
+            button21.TabIndex = 63;
+            button21.Text = "Now Constructing...";
+            toolTip1.SetToolTip(button21, "お楽しみに");
+            button21.UseVisualStyleBackColor = true;
+            button21.Visible = false;
+            // 
+            // button20
+            // 
+            button20.Location = new Point(266, 87);
+            button20.Name = "button20";
+            button20.Size = new Size(200, 34);
+            button20.TabIndex = 62;
+            button20.Text = "Now Constructing...";
+            toolTip1.SetToolTip(button20, "お楽しみに");
+            button20.UseVisualStyleBackColor = true;
+            button20.Visible = false;
+            // 
+            // button19
+            // 
+            button19.Location = new Point(266, 30);
+            button19.Name = "button19";
+            button19.Size = new Size(200, 34);
+            button19.TabIndex = 61;
+            button19.Text = "Now Constructing...";
+            toolTip1.SetToolTip(button19, "お楽しみに");
+            button19.UseVisualStyleBackColor = true;
+            button19.Visible = false;
+            // 
+            // button18
+            // 
+            button18.Location = new Point(14, 195);
+            button18.Name = "button18";
+            button18.Size = new Size(200, 34);
+            button18.TabIndex = 60;
+            button18.Text = "メッセージ表示";
+            toolTip1.SetToolTip(button18, "メッセージウィンドウを表示します。\r\n(アカンサスポータルが開かれます)");
+            button18.UseVisualStyleBackColor = true;
+            button18.Click += button18_Click;
+            // 
             // button14
             // 
-            button14.Location = new Point(14, 195);
+            button14.Location = new Point(14, 141);
             button14.Name = "button14";
             button14.Size = new Size(200, 34);
             button14.TabIndex = 59;
@@ -1026,7 +1210,7 @@ namespace TestApp
             // 
             // button1
             // 
-            button1.Location = new Point(14, 141);
+            button1.Location = new Point(266, 195);
             button1.Name = "button1";
             button1.Size = new Size(200, 34);
             button1.TabIndex = 56;
@@ -1256,24 +1440,26 @@ namespace TestApp
             contextMenuStrip1.ImageScalingSize = new Size(24, 24);
             contextMenuStrip1.Items.AddRange(new ToolStripItem[] { シラバスを開く未実装ToolStripMenuItem, 選択代行機能未実装ToolStripMenuItem, 設定ToolStripMenuItem });
             contextMenuStrip1.Name = "contextMenuStrip1";
-            contextMenuStrip1.Size = new Size(281, 100);
+            contextMenuStrip1.Size = new Size(263, 100);
+            contextMenuStrip1.Opening += t開かれたときの操作;
             // 
             // シラバスを開く未実装ToolStripMenuItem
             // 
             シラバスを開く未実装ToolStripMenuItem.Name = "シラバスを開く未実装ToolStripMenuItem";
-            シラバスを開く未実装ToolStripMenuItem.Size = new Size(280, 32);
-            シラバスを開く未実装ToolStripMenuItem.Text = "シラバスを開く (未実装)";
+            シラバスを開く未実装ToolStripMenuItem.Size = new Size(262, 32);
+            シラバスを開く未実装ToolStripMenuItem.Text = "シラバスを開く";
+            シラバスを開く未実装ToolStripMenuItem.Click += シラバスを開く未実装ToolStripMenuItem_Click;
             // 
             // 選択代行機能未実装ToolStripMenuItem
             // 
             選択代行機能未実装ToolStripMenuItem.Name = "選択代行機能未実装ToolStripMenuItem";
-            選択代行機能未実装ToolStripMenuItem.Size = new Size(280, 32);
+            選択代行機能未実装ToolStripMenuItem.Size = new Size(262, 32);
             選択代行機能未実装ToolStripMenuItem.Text = "選択代行機能 (未実装)";
             // 
             // 設定ToolStripMenuItem
             // 
             設定ToolStripMenuItem.Name = "設定ToolStripMenuItem";
-            設定ToolStripMenuItem.Size = new Size(280, 32);
+            設定ToolStripMenuItem.Size = new Size(262, 32);
             設定ToolStripMenuItem.Text = "設定";
             設定ToolStripMenuItem.Click += 設定ToolStripMenuItem_Click;
             // 
@@ -1788,38 +1974,41 @@ namespace TestApp
             tabPage3.Location = new Point(4, 35);
             tabPage3.Name = "tabPage3";
             tabPage3.Padding = new Padding(3);
-            tabPage3.Size = new Size(1749, 678);
+            tabPage3.Size = new Size(1991, 670);
             tabPage3.TabIndex = 8;
             tabPage3.Text = "FileClipper";
             tabPage3.UseVisualStyleBackColor = true;
             // 
             // button11
             // 
-            button11.Location = new Point(1502, 14);
+            button11.Location = new Point(1718, 14);
             button11.Name = "button11";
             button11.Size = new Size(112, 34);
             button11.TabIndex = 4;
             button11.Text = "Remove";
+            toolTip1.SetToolTip(button11, "ファイルを一覧から取り除きます。\r\nファイル自体は保持されます。");
             button11.UseVisualStyleBackColor = true;
             button11.Click += button11_Click;
             // 
             // button10
             // 
-            button10.Location = new Point(1379, 14);
+            button10.Location = new Point(1595, 14);
             button10.Name = "button10";
             button10.Size = new Size(112, 34);
             button10.TabIndex = 3;
             button10.Text = "Open";
+            toolTip1.SetToolTip(button10, "選択ファイルを開きます");
             button10.UseVisualStyleBackColor = true;
             button10.Click += button10_Click;
             // 
             // button9
             // 
-            button9.Location = new Point(1620, 14);
+            button9.Location = new Point(1836, 14);
             button9.Name = "button9";
             button9.Size = new Size(112, 34);
             button9.TabIndex = 2;
             button9.Text = "Export";
+            toolTip1.SetToolTip(button9, "ファイルの一覧をエクスポートします。");
             button9.UseVisualStyleBackColor = true;
             button9.Click += button9_Click;
             // 
@@ -1839,7 +2028,7 @@ namespace TestApp
             listBox1.ItemHeight = 25;
             listBox1.Location = new Point(6, 59);
             listBox1.Name = "listBox1";
-            listBox1.Size = new Size(1737, 629);
+            listBox1.Size = new Size(1950, 629);
             listBox1.TabIndex = 0;
             listBox1.DragDrop += DragDrop;
             listBox1.DragEnter += DragEnter;
@@ -1857,7 +2046,7 @@ namespace TestApp
             tabPage4.Location = new Point(4, 35);
             tabPage4.Name = "tabPage4";
             tabPage4.Padding = new Padding(3);
-            tabPage4.Size = new Size(1749, 678);
+            tabPage4.Size = new Size(1991, 670);
             tabPage4.TabIndex = 9;
             tabPage4.Text = "TextMemo";
             tabPage4.UseVisualStyleBackColor = true;
@@ -1922,12 +2111,21 @@ namespace TestApp
             // 
             richTextBox1.Location = new Point(20, 47);
             richTextBox1.Name = "richTextBox1";
-            richTextBox1.Size = new Size(1723, 610);
+            richTextBox1.Size = new Size(1947, 610);
             richTextBox1.TabIndex = 0;
             richTextBox1.Text = "";
             // 
             // tabPage2
             // 
+            tabPage2.Controls.Add(label90);
+            tabPage2.Controls.Add(numericUpDown2);
+            tabPage2.Controls.Add(label89);
+            tabPage2.Controls.Add(button36);
+            tabPage2.Controls.Add(label82);
+            tabPage2.Controls.Add(comboBox3);
+            tabPage2.Controls.Add(button17);
+            tabPage2.Controls.Add(label23);
+            tabPage2.Controls.Add(button16);
             tabPage2.Controls.Add(label22);
             tabPage2.Controls.Add(label21);
             tabPage2.Controls.Add(label20);
@@ -1935,18 +2133,104 @@ namespace TestApp
             tabPage2.Controls.Add(textBox3);
             tabPage2.Controls.Add(button15);
             tabPage2.Controls.Add(webView21);
-            tabPage2.Location = new Point(4, 34);
+            tabPage2.Location = new Point(4, 35);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(1749, 679);
+            tabPage2.Size = new Size(1991, 670);
             tabPage2.TabIndex = 7;
             tabPage2.Text = "Web (Beta)";
             tabPage2.UseVisualStyleBackColor = true;
             // 
+            // label90
+            // 
+            label90.AutoSize = true;
+            label90.Location = new Point(1698, 381);
+            label90.Name = "label90";
+            label90.Size = new Size(84, 25);
+            label90.TabIndex = 15;
+            label90.Text = "不可の数";
+            // 
+            // numericUpDown2
+            // 
+            numericUpDown2.DecimalPlaces = 1;
+            numericUpDown2.Location = new Point(1788, 381);
+            numericUpDown2.Maximum = new decimal(new int[] { 65535, 0, 0, 0 });
+            numericUpDown2.Name = "numericUpDown2";
+            numericUpDown2.Size = new Size(137, 34);
+            numericUpDown2.TabIndex = 14;
+            // 
+            // label89
+            // 
+            label89.AutoSize = true;
+            label89.Location = new Point(1503, 440);
+            label89.Name = "label89";
+            label89.Size = new Size(168, 25);
+            label89.TabIndex = 13;
+            label89.Text = "GPA Result Here...";
+            // 
+            // button36
+            // 
+            button36.Location = new Point(1503, 376);
+            button36.Name = "button36";
+            button36.Size = new Size(180, 34);
+            button36.TabIndex = 12;
+            button36.Text = "GPA算出";
+            toolTip1.SetToolTip(button36, "総合GPAを算出します。\r\n左のウィンドウで成績集計ページを開いておいてください。");
+            button36.UseVisualStyleBackColor = true;
+            button36.Click += button36_Click;
+            // 
+            // label82
+            // 
+            label82.AutoSize = true;
+            label82.Location = new Point(1586, 319);
+            label82.Name = "label82";
+            label82.Size = new Size(174, 25);
+            label82.TabIndex = 11;
+            label82.Text = "出席情報取得モード";
+            // 
+            // comboBox3
+            // 
+            comboBox3.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox3.FormattingEnabled = true;
+            comboBox3.Items.AddRange(new object[] { "Q1", "Q2", "Q3", "Q4" });
+            comboBox3.Location = new Point(1766, 316);
+            comboBox3.Name = "comboBox3";
+            comboBox3.Size = new Size(182, 33);
+            comboBox3.TabIndex = 10;
+            // 
+            // button17
+            // 
+            button17.Location = new Point(1766, 246);
+            button17.Name = "button17";
+            button17.Size = new Size(157, 34);
+            button17.TabIndex = 9;
+            button17.Text = "リロード";
+            button17.UseVisualStyleBackColor = true;
+            button17.Click += button17_Click;
+            // 
+            // label23
+            // 
+            label23.AutoSize = true;
+            label23.Location = new Point(1788, 109);
+            label23.Name = "label23";
+            label23.Size = new Size(84, 25);
+            label23.TabIndex = 8;
+            label23.Text = "応答時間";
+            // 
+            // button16
+            // 
+            button16.Location = new Point(1766, 186);
+            button16.Name = "button16";
+            button16.Size = new Size(157, 34);
+            button16.TabIndex = 7;
+            button16.Text = "出席情報を取得";
+            button16.UseVisualStyleBackColor = true;
+            button16.Click += button16_Click;
+            // 
             // label22
             // 
             label22.AutoSize = true;
-            label22.Location = new Point(1180, 30);
+            label22.Location = new Point(1483, 31);
             label22.Name = "label22";
             label22.Size = new Size(30, 25);
             label22.TabIndex = 6;
@@ -1955,7 +2239,7 @@ namespace TestApp
             // label21
             // 
             label21.AutoSize = true;
-            label21.Location = new Point(1174, 91);
+            label21.Location = new Point(1477, 92);
             label21.Name = "label21";
             label21.Size = new Size(51, 25);
             label21.TabIndex = 5;
@@ -1971,7 +2255,7 @@ namespace TestApp
             // 
             // textBox4
             // 
-            textBox4.Location = new Point(1267, 88);
+            textBox4.Location = new Point(1570, 89);
             textBox4.Name = "textBox4";
             textBox4.Size = new Size(150, 34);
             textBox4.TabIndex = 3;
@@ -1979,7 +2263,7 @@ namespace TestApp
             // 
             // textBox3
             // 
-            textBox3.Location = new Point(1267, 27);
+            textBox3.Location = new Point(1570, 28);
             textBox3.Name = "textBox3";
             textBox3.Size = new Size(150, 34);
             textBox3.TabIndex = 2;
@@ -1987,7 +2271,7 @@ namespace TestApp
             // 
             // button15
             // 
-            button15.Location = new Point(1463, 57);
+            button15.Location = new Point(1766, 58);
             button15.Name = "button15";
             button15.Size = new Size(137, 34);
             button15.TabIndex = 1;
@@ -2002,9 +2286,727 @@ namespace TestApp
             webView21.DefaultBackgroundColor = Color.White;
             webView21.Location = new Point(6, 6);
             webView21.Name = "webView21";
-            webView21.Size = new Size(1145, 667);
+            webView21.Size = new Size(1448, 667);
             webView21.TabIndex = 0;
             webView21.ZoomFactor = 1D;
+            webView21.NavigationCompleted += NavigationCompleted;
+            // 
+            // tabPage5
+            // 
+            tabPage5.Controls.Add(label81);
+            tabPage5.Controls.Add(comboBox2);
+            tabPage5.Controls.Add(progressBar1);
+            tabPage5.Controls.Add(label28);
+            tabPage5.Controls.Add(label27);
+            tabPage5.Controls.Add(label26);
+            tabPage5.Controls.Add(label25);
+            tabPage5.Controls.Add(label24);
+            tabPage5.Location = new Point(4, 35);
+            tabPage5.Name = "tabPage5";
+            tabPage5.Size = new Size(1991, 670);
+            tabPage5.TabIndex = 10;
+            tabPage5.Text = "BatteryStatus";
+            tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // label81
+            // 
+            label81.AutoSize = true;
+            label81.Font = new Font("Mint Mono 35", 11.999999F, FontStyle.Regular, GraphicsUnit.Point, 128);
+            label81.Location = new Point(559, 202);
+            label81.Name = "label81";
+            label81.Size = new Size(252, 28);
+            label81.TabIndex = 7;
+            label81.Text = "警告モードセレクター";
+            // 
+            // comboBox2
+            // 
+            comboBox2.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox2.FormattingEnabled = true;
+            comboBox2.Items.AddRange(new object[] { "ALL", "<=0", "<0", "<-100", "<-250", "<-500", "<-1000", "<-3000", "通知しない" });
+            comboBox2.Location = new Point(817, 197);
+            comboBox2.Name = "comboBox2";
+            comboBox2.Size = new Size(182, 33);
+            comboBox2.TabIndex = 2;
+            comboBox2.SelectedIndexChanged += comboBox2_SelectedIndexChanged;
+            // 
+            // progressBar1
+            // 
+            progressBar1.ForeColor = Color.Orange;
+            progressBar1.Location = new Point(323, 33);
+            progressBar1.Maximum = 10000;
+            progressBar1.Name = "progressBar1";
+            progressBar1.Size = new Size(540, 33);
+            progressBar1.TabIndex = 5;
+            // 
+            // label28
+            // 
+            label28.AutoSize = true;
+            label28.Font = new Font("Mint Mono 35", 11.999999F, FontStyle.Regular, GraphicsUnit.Point, 128);
+            label28.Location = new Point(94, 349);
+            label28.Name = "label28";
+            label28.Size = new Size(292, 28);
+            label28.TabIndex = 4;
+            label28.Text = "バッテリー残量: 999.9%";
+            // 
+            // label27
+            // 
+            label27.AutoSize = true;
+            label27.Font = new Font("Mint Mono 35", 11.999999F, FontStyle.Regular, GraphicsUnit.Point, 128);
+            label27.Location = new Point(94, 275);
+            label27.Name = "label27";
+            label27.Size = new Size(292, 28);
+            label27.TabIndex = 3;
+            label27.Text = "バッテリー残量: 999.9%";
+            // 
+            // label26
+            // 
+            label26.AutoSize = true;
+            label26.Font = new Font("Mint Mono 35", 11.999999F, FontStyle.Regular, GraphicsUnit.Point, 128);
+            label26.Location = new Point(94, 202);
+            label26.Name = "label26";
+            label26.Size = new Size(292, 28);
+            label26.TabIndex = 2;
+            label26.Text = "バッテリー残量: 999.9%";
+            // 
+            // label25
+            // 
+            label25.AutoSize = true;
+            label25.Font = new Font("Mint Mono 35", 11.999999F, FontStyle.Regular, GraphicsUnit.Point, 128);
+            label25.Location = new Point(362, 110);
+            label25.Name = "label25";
+            label25.Size = new Size(292, 28);
+            label25.TabIndex = 1;
+            label25.Text = "バッテリー残量: 999.9%";
+            // 
+            // label24
+            // 
+            label24.AutoSize = true;
+            label24.Font = new Font("Mint Mono 35", 11.999999F, FontStyle.Regular, GraphicsUnit.Point, 128);
+            label24.Location = new Point(3, 33);
+            label24.Name = "label24";
+            label24.Size = new Size(292, 28);
+            label24.TabIndex = 0;
+            label24.Text = "バッテリー残量: 999.9%";
+            // 
+            // tabPage7
+            // 
+            tabPage7.Controls.Add(groupBox4);
+            tabPage7.Controls.Add(groupBox3);
+            tabPage7.Controls.Add(label87);
+            tabPage7.Controls.Add(label86);
+            tabPage7.Controls.Add(label85);
+            tabPage7.Controls.Add(button30);
+            tabPage7.Controls.Add(button29);
+            tabPage7.Controls.Add(button24);
+            tabPage7.Location = new Point(4, 35);
+            tabPage7.Name = "tabPage7";
+            tabPage7.Padding = new Padding(3);
+            tabPage7.Size = new Size(1991, 670);
+            tabPage7.TabIndex = 11;
+            tabPage7.Text = "ユーザーリンク集";
+            tabPage7.UseVisualStyleBackColor = true;
+            // 
+            // groupBox4
+            // 
+            groupBox4.Controls.Add(button35);
+            groupBox4.Controls.Add(listBox2);
+            groupBox4.Controls.Add(button31);
+            groupBox4.Controls.Add(button27);
+            groupBox4.Controls.Add(button28);
+            groupBox4.Controls.Add(button25);
+            groupBox4.Controls.Add(button26);
+            groupBox4.Location = new Point(1032, 19);
+            groupBox4.Name = "groupBox4";
+            groupBox4.Size = new Size(952, 638);
+            groupBox4.TabIndex = 17;
+            groupBox4.TabStop = false;
+            groupBox4.Text = "List Window";
+            // 
+            // button35
+            // 
+            button35.Location = new Point(592, 586);
+            button35.Name = "button35";
+            button35.Size = new Size(153, 43);
+            button35.TabIndex = 17;
+            button35.Text = "Update Config";
+            toolTip1.SetToolTip(button35, "選択項目をWebで開きます。");
+            button35.UseVisualStyleBackColor = true;
+            button35.Click += button35_Click;
+            // 
+            // listBox2
+            // 
+            listBox2.FormattingEnabled = true;
+            listBox2.ItemHeight = 25;
+            listBox2.Location = new Point(24, 33);
+            listBox2.Name = "listBox2";
+            listBox2.Size = new Size(859, 529);
+            listBox2.TabIndex = 5;
+            listBox2.DoubleClick += listBox2_Action;
+            // 
+            // button31
+            // 
+            button31.Location = new Point(764, 586);
+            button31.Name = "button31";
+            button31.Size = new Size(119, 43);
+            button31.TabIndex = 16;
+            button31.Text = "Execute";
+            toolTip1.SetToolTip(button31, "選択項目をWebで開きます。");
+            button31.UseVisualStyleBackColor = true;
+            button31.Click += button31_Click;
+            // 
+            // button27
+            // 
+            button27.Location = new Point(896, 199);
+            button27.Name = "button27";
+            button27.Size = new Size(42, 34);
+            button27.TabIndex = 8;
+            button27.Text = "↑";
+            toolTip1.SetToolTip(button27, "選択項目を上にずらします");
+            button27.UseVisualStyleBackColor = true;
+            button27.Click += button27_Click;
+            // 
+            // button28
+            // 
+            button28.Location = new Point(896, 257);
+            button28.Name = "button28";
+            button28.Size = new Size(42, 34);
+            button28.TabIndex = 9;
+            button28.Text = "↓";
+            toolTip1.SetToolTip(button28, "選択項目を下にずらします");
+            button28.UseVisualStyleBackColor = true;
+            button28.Click += button28_Click;
+            // 
+            // button25
+            // 
+            button25.Location = new Point(24, 586);
+            button25.Name = "button25";
+            button25.Size = new Size(119, 43);
+            button25.TabIndex = 6;
+            button25.Text = "Remove";
+            toolTip1.SetToolTip(button25, "選択項目をリストから削除します。");
+            button25.UseVisualStyleBackColor = true;
+            button25.Click += button25_Click_1;
+            // 
+            // button26
+            // 
+            button26.Location = new Point(163, 586);
+            button26.Name = "button26";
+            button26.Size = new Size(119, 43);
+            button26.TabIndex = 7;
+            button26.Text = "Clear All";
+            toolTip1.SetToolTip(button26, "リストの全項目を削除します。");
+            button26.UseVisualStyleBackColor = true;
+            button26.Click += button26_Click;
+            // 
+            // groupBox3
+            // 
+            groupBox3.Controls.Add(label88);
+            groupBox3.Controls.Add(button34);
+            groupBox3.Controls.Add(button33);
+            groupBox3.Controls.Add(button32);
+            groupBox3.Controls.Add(textBox5);
+            groupBox3.Controls.Add(label83);
+            groupBox3.Controls.Add(label84);
+            groupBox3.Controls.Add(textBox6);
+            groupBox3.Location = new Point(18, 19);
+            groupBox3.Name = "groupBox3";
+            groupBox3.Size = new Size(815, 638);
+            groupBox3.TabIndex = 15;
+            groupBox3.TabStop = false;
+            groupBox3.Text = "Edit Window";
+            // 
+            // label88
+            // 
+            label88.AutoSize = true;
+            label88.Location = new Point(111, 177);
+            label88.Name = "label88";
+            label88.Size = new Size(17, 25);
+            label88.TabIndex = 21;
+            label88.Text = " ";
+            // 
+            // button34
+            // 
+            button34.Location = new Point(334, 586);
+            button34.Name = "button34";
+            button34.Size = new Size(138, 43);
+            button34.TabIndex = 20;
+            button34.Text = "Clear All";
+            toolTip1.SetToolTip(button34, "すべての入力状態をリセットします。");
+            button34.UseVisualStyleBackColor = true;
+            button34.Click += button34_Click;
+            // 
+            // button33
+            // 
+            button33.Location = new Point(173, 586);
+            button33.Name = "button33";
+            button33.Size = new Size(138, 43);
+            button33.TabIndex = 19;
+            button33.Text = "Clear URL";
+            toolTip1.SetToolTip(button33, "URLの入力状態をリセットします。");
+            button33.UseVisualStyleBackColor = true;
+            button33.Click += button33_Click;
+            // 
+            // button32
+            // 
+            button32.Location = new Point(14, 586);
+            button32.Name = "button32";
+            button32.Size = new Size(138, 43);
+            button32.TabIndex = 18;
+            button32.Text = "Clear Title";
+            toolTip1.SetToolTip(button32, "タイトルの入力状態をリセットします。");
+            button32.UseVisualStyleBackColor = true;
+            button32.Click += button32_Click;
+            // 
+            // textBox5
+            // 
+            textBox5.Location = new Point(111, 40);
+            textBox5.Name = "textBox5";
+            textBox5.PlaceholderText = "Enter Title here...";
+            textBox5.Size = new Size(689, 34);
+            textBox5.TabIndex = 3;
+            toolTip1.SetToolTip(textBox5, "リストのタイトルを入力します。");
+            // 
+            // label83
+            // 
+            label83.AutoSize = true;
+            label83.Location = new Point(7, 43);
+            label83.Name = "label83";
+            label83.Size = new Size(84, 25);
+            label83.TabIndex = 1;
+            label83.Text = "タイトル";
+            label83.Click += label83_Click;
+            // 
+            // label84
+            // 
+            label84.AutoSize = true;
+            label84.Location = new Point(7, 112);
+            label84.Name = "label84";
+            label84.Size = new Size(46, 25);
+            label84.TabIndex = 2;
+            label84.Text = "URL";
+            // 
+            // textBox6
+            // 
+            textBox6.AcceptsReturn = true;
+            textBox6.Location = new Point(111, 103);
+            textBox6.Name = "textBox6";
+            textBox6.PlaceholderText = "Enter URL here...";
+            textBox6.Size = new Size(689, 34);
+            textBox6.TabIndex = 4;
+            toolTip1.SetToolTip(textBox6, "リストのURLを入力します。");
+            // 
+            // label87
+            // 
+            label87.AutoSize = true;
+            label87.Location = new Point(843, 178);
+            label87.Name = "label87";
+            label87.Size = new Size(38, 25);
+            label87.TabIndex = 14;
+            label87.Text = "<=";
+            // 
+            // label86
+            // 
+            label86.AutoSize = true;
+            label86.Location = new Point(986, 260);
+            label86.Name = "label86";
+            label86.Size = new Size(38, 25);
+            label86.TabIndex = 13;
+            label86.Text = "=>";
+            // 
+            // label85
+            // 
+            label85.AutoSize = true;
+            label85.Location = new Point(986, 97);
+            label85.Name = "label85";
+            label85.Size = new Size(38, 25);
+            label85.TabIndex = 12;
+            label85.Text = "=>";
+            // 
+            // button30
+            // 
+            button30.Location = new Point(884, 251);
+            button30.Name = "button30";
+            button30.Size = new Size(96, 43);
+            button30.TabIndex = 11;
+            button30.Text = "modify";
+            toolTip1.SetToolTip(button30, "入力された項目で選択項目を上書きします。");
+            button30.UseVisualStyleBackColor = true;
+            button30.Click += button30_Click;
+            // 
+            // button29
+            // 
+            button29.Location = new Point(884, 169);
+            button29.Name = "button29";
+            button29.Size = new Size(96, 43);
+            button29.TabIndex = 10;
+            button29.Text = "edit";
+            toolTip1.SetToolTip(button29, "選択した項目を編集します。");
+            button29.UseVisualStyleBackColor = true;
+            button29.Click += button29_Click;
+            // 
+            // button24
+            // 
+            button24.Location = new Point(884, 91);
+            button24.Name = "button24";
+            button24.Size = new Size(96, 43);
+            button24.TabIndex = 0;
+            button24.Text = "add";
+            toolTip1.SetToolTip(button24, "入力された項目をリストに追加します。");
+            button24.UseVisualStyleBackColor = true;
+            button24.Click += button24_Click;
+            // 
+            // tabPage8
+            // 
+            tabPage8.Controls.Add(button39);
+            tabPage8.Controls.Add(groupBox6);
+            tabPage8.Controls.Add(label94);
+            tabPage8.Controls.Add(label95);
+            tabPage8.Controls.Add(label96);
+            tabPage8.Controls.Add(button45);
+            tabPage8.Controls.Add(button46);
+            tabPage8.Controls.Add(button47);
+            tabPage8.Controls.Add(groupBox7);
+            tabPage8.Location = new Point(4, 35);
+            tabPage8.Name = "tabPage8";
+            tabPage8.Padding = new Padding(3);
+            tabPage8.Size = new Size(1991, 670);
+            tabPage8.TabIndex = 12;
+            tabPage8.Text = "課題リスト (Under Construction)";
+            tabPage8.UseVisualStyleBackColor = true;
+            // 
+            // button39
+            // 
+            button39.Location = new Point(884, 370);
+            button39.Name = "button39";
+            button39.Size = new Size(96, 43);
+            button39.TabIndex = 26;
+            button39.Text = "Option...";
+            toolTip1.SetToolTip(button39, "設定");
+            button39.UseVisualStyleBackColor = true;
+            // 
+            // groupBox6
+            // 
+            groupBox6.Controls.Add(label99);
+            groupBox6.Controls.Add(textBox10);
+            groupBox6.Controls.Add(button38);
+            groupBox6.Controls.Add(dateTimePicker1);
+            groupBox6.Controls.Add(label98);
+            groupBox6.Controls.Add(label97);
+            groupBox6.Controls.Add(textBox9);
+            groupBox6.Controls.Add(label92);
+            groupBox6.Controls.Add(button37);
+            groupBox6.Controls.Add(textBox8);
+            groupBox6.Controls.Add(label93);
+            groupBox6.Controls.Add(label91);
+            groupBox6.Controls.Add(textBox7);
+            groupBox6.Location = new Point(18, 19);
+            groupBox6.Name = "groupBox6";
+            groupBox6.Size = new Size(815, 638);
+            groupBox6.TabIndex = 24;
+            groupBox6.TabStop = false;
+            groupBox6.Text = "Edit Window";
+            // 
+            // label99
+            // 
+            label99.AutoSize = true;
+            label99.Location = new Point(13, 351);
+            label99.Name = "label99";
+            label99.Size = new Size(75, 25);
+            label99.TabIndex = 29;
+            label99.Text = "subject";
+            // 
+            // textBox10
+            // 
+            textBox10.AcceptsReturn = true;
+            textBox10.Location = new Point(111, 351);
+            textBox10.Name = "textBox10";
+            textBox10.PlaceholderText = "Enter subject here...";
+            textBox10.Size = new Size(689, 34);
+            textBox10.TabIndex = 28;
+            toolTip1.SetToolTip(textBox10, "教科名もしくはラベルを入力します。");
+            // 
+            // button38
+            // 
+            button38.Location = new Point(169, 586);
+            button38.Name = "button38";
+            button38.Size = new Size(174, 43);
+            button38.TabIndex = 27;
+            button38.Text = "Auto-Insert URL";
+            toolTip1.SetToolTip(button38, "すべての入力状態をリセットします。");
+            button38.UseVisualStyleBackColor = true;
+            button38.Click += button38_Click;
+            // 
+            // dateTimePicker1
+            // 
+            dateTimePicker1.CustomFormat = "yyyy/MM/dd (ddd) HH:mm";
+            dateTimePicker1.Format = DateTimePickerFormat.Custom;
+            dateTimePicker1.Location = new Point(111, 300);
+            dateTimePicker1.Name = "dateTimePicker1";
+            dateTimePicker1.Size = new Size(689, 34);
+            dateTimePicker1.TabIndex = 26;
+            toolTip1.SetToolTip(dateTimePicker1, "期限を入力します。");
+            dateTimePicker1.ValueChanged += dateTimePicker1_ValueChanged;
+            // 
+            // label98
+            // 
+            label98.AutoSize = true;
+            label98.Location = new Point(13, 300);
+            label98.Name = "label98";
+            label98.Size = new Size(86, 25);
+            label98.TabIndex = 25;
+            label98.Text = "Deadline";
+            // 
+            // label97
+            // 
+            label97.AutoSize = true;
+            label97.Location = new Point(0, 168);
+            label97.Name = "label97";
+            label97.Size = new Size(111, 25);
+            label97.TabIndex = 24;
+            label97.Text = "Description";
+            // 
+            // textBox9
+            // 
+            textBox9.AcceptsReturn = true;
+            textBox9.Location = new Point(111, 168);
+            textBox9.Multiline = true;
+            textBox9.Name = "textBox9";
+            textBox9.PlaceholderText = "Enter Descriptions here...";
+            textBox9.Size = new Size(689, 120);
+            textBox9.TabIndex = 23;
+            toolTip1.SetToolTip(textBox9, "課題の説明を入力します。");
+            // 
+            // label92
+            // 
+            label92.AutoSize = true;
+            label92.Location = new Point(111, 177);
+            label92.Name = "label92";
+            label92.Size = new Size(17, 25);
+            label92.TabIndex = 21;
+            label92.Text = " ";
+            // 
+            // button37
+            // 
+            button37.Location = new Point(14, 586);
+            button37.Name = "button37";
+            button37.Size = new Size(138, 43);
+            button37.TabIndex = 20;
+            button37.Text = "Clear All";
+            toolTip1.SetToolTip(button37, "すべての入力状態をリセットします。");
+            button37.UseVisualStyleBackColor = true;
+            button37.Click += button37_Click;
+            // 
+            // textBox8
+            // 
+            textBox8.Location = new Point(111, 40);
+            textBox8.Name = "textBox8";
+            textBox8.PlaceholderText = "Enter Title here...";
+            textBox8.Size = new Size(689, 34);
+            textBox8.TabIndex = 3;
+            toolTip1.SetToolTip(textBox8, "課題のタイトルを入力します。");
+            // 
+            // label93
+            // 
+            label93.AutoSize = true;
+            label93.Location = new Point(22, 43);
+            label93.Name = "label93";
+            label93.Size = new Size(52, 25);
+            label93.TabIndex = 1;
+            label93.Text = "title";
+            // 
+            // label91
+            // 
+            label91.AutoSize = true;
+            label91.Location = new Point(27, 106);
+            label91.Name = "label91";
+            label91.Size = new Size(46, 25);
+            label91.TabIndex = 2;
+            label91.Text = "URL";
+            // 
+            // textBox7
+            // 
+            textBox7.AcceptsReturn = true;
+            textBox7.Location = new Point(111, 103);
+            textBox7.Name = "textBox7";
+            textBox7.PlaceholderText = "Enter URL here...";
+            textBox7.Size = new Size(689, 34);
+            textBox7.TabIndex = 4;
+            toolTip1.SetToolTip(textBox7, "参考URLを入力します。");
+            // 
+            // label94
+            // 
+            label94.AutoSize = true;
+            label94.Location = new Point(843, 178);
+            label94.Name = "label94";
+            label94.Size = new Size(38, 25);
+            label94.TabIndex = 23;
+            label94.Text = "<=";
+            // 
+            // label95
+            // 
+            label95.AutoSize = true;
+            label95.Location = new Point(986, 260);
+            label95.Name = "label95";
+            label95.Size = new Size(38, 25);
+            label95.TabIndex = 22;
+            label95.Text = "=>";
+            // 
+            // label96
+            // 
+            label96.AutoSize = true;
+            label96.Location = new Point(986, 97);
+            label96.Name = "label96";
+            label96.Size = new Size(38, 25);
+            label96.TabIndex = 21;
+            label96.Text = "=>";
+            // 
+            // button45
+            // 
+            button45.Location = new Point(884, 251);
+            button45.Name = "button45";
+            button45.Size = new Size(96, 43);
+            button45.TabIndex = 20;
+            button45.Text = "modify";
+            toolTip1.SetToolTip(button45, "入力された項目で選択項目を上書きします。");
+            button45.UseVisualStyleBackColor = true;
+            button45.Click += button45_Click;
+            // 
+            // button46
+            // 
+            button46.Location = new Point(884, 169);
+            button46.Name = "button46";
+            button46.Size = new Size(96, 43);
+            button46.TabIndex = 19;
+            button46.Text = "edit";
+            toolTip1.SetToolTip(button46, "選択した項目を編集します。");
+            button46.UseVisualStyleBackColor = true;
+            button46.Click += button46_Click;
+            // 
+            // button47
+            // 
+            button47.Location = new Point(884, 91);
+            button47.Name = "button47";
+            button47.Size = new Size(96, 43);
+            button47.TabIndex = 18;
+            button47.Text = "add";
+            toolTip1.SetToolTip(button47, "入力された項目をリストに追加します。");
+            button47.UseVisualStyleBackColor = true;
+            button47.Click += button47_Click;
+            // 
+            // groupBox7
+            // 
+            groupBox7.Controls.Add(button50);
+            groupBox7.Controls.Add(button49);
+            groupBox7.Controls.Add(button40);
+            groupBox7.Controls.Add(listBox3);
+            groupBox7.Controls.Add(button41);
+            groupBox7.Controls.Add(button42);
+            groupBox7.Controls.Add(button48);
+            groupBox7.Controls.Add(button43);
+            groupBox7.Controls.Add(button44);
+            groupBox7.Location = new Point(1032, 19);
+            groupBox7.Name = "groupBox7";
+            groupBox7.Size = new Size(952, 638);
+            groupBox7.TabIndex = 25;
+            groupBox7.TabStop = false;
+            groupBox7.Text = "List Window";
+            // 
+            // button50
+            // 
+            button50.Location = new Point(896, 432);
+            button50.Name = "button50";
+            button50.Size = new Size(42, 34);
+            button50.TabIndex = 19;
+            button50.Text = "?";
+            toolTip1.SetToolTip(button50, "選択項目の詳細を表示します");
+            button50.UseVisualStyleBackColor = true;
+            button50.Click += button50_Click;
+            // 
+            // button49
+            // 
+            button49.Location = new Point(586, 586);
+            button49.Name = "button49";
+            button49.Size = new Size(162, 43);
+            button49.TabIndex = 18;
+            button49.Text = "Go to Website";
+            toolTip1.SetToolTip(button49, "選択項目をWebで開きます。");
+            button49.UseVisualStyleBackColor = true;
+            button49.Click += button49_Click;
+            // 
+            // button40
+            // 
+            button40.Location = new Point(415, 586);
+            button40.Name = "button40";
+            button40.Size = new Size(153, 43);
+            button40.TabIndex = 17;
+            button40.Text = "Update Config";
+            toolTip1.SetToolTip(button40, "選択項目をWebで開きます。");
+            button40.UseVisualStyleBackColor = true;
+            button40.Click += button40_Click;
+            // 
+            // listBox3
+            // 
+            listBox3.FormattingEnabled = true;
+            listBox3.ItemHeight = 25;
+            listBox3.Location = new Point(24, 33);
+            listBox3.Name = "listBox3";
+            listBox3.Size = new Size(859, 529);
+            listBox3.TabIndex = 5;
+            // 
+            // button41
+            // 
+            button41.Location = new Point(764, 586);
+            button41.Name = "button41";
+            button41.Size = new Size(119, 43);
+            button41.TabIndex = 16;
+            button41.Text = "Complete";
+            toolTip1.SetToolTip(button41, "選択項目を完了します。\r\nデータは別のテキストファイルに移され、一覧からは削除されます。");
+            button41.UseVisualStyleBackColor = true;
+            button41.Click += button41_Click;
+            // 
+            // button42
+            // 
+            button42.Location = new Point(896, 199);
+            button42.Name = "button42";
+            button42.Size = new Size(42, 34);
+            button42.TabIndex = 8;
+            button42.Text = "↑";
+            toolTip1.SetToolTip(button42, "選択項目を上にずらします");
+            button42.UseVisualStyleBackColor = true;
+            button42.Click += button42_Click;
+            // 
+            // button48
+            // 
+            button48.Location = new Point(896, 257);
+            button48.Name = "button48";
+            button48.Size = new Size(42, 34);
+            button48.TabIndex = 9;
+            button48.Text = "↓";
+            toolTip1.SetToolTip(button48, "選択項目を下にずらします");
+            button48.UseVisualStyleBackColor = true;
+            button48.Click += button48_Click;
+            // 
+            // button43
+            // 
+            button43.Location = new Point(24, 586);
+            button43.Name = "button43";
+            button43.Size = new Size(119, 43);
+            button43.TabIndex = 6;
+            button43.Text = "Remove";
+            toolTip1.SetToolTip(button43, "選択項目をリストから削除します。");
+            button43.UseVisualStyleBackColor = true;
+            button43.Click += button43_Click;
+            // 
+            // button44
+            // 
+            button44.Location = new Point(163, 586);
+            button44.Name = "button44";
+            button44.Size = new Size(119, 43);
+            button44.TabIndex = 7;
+            button44.Text = "Clear All";
+            toolTip1.SetToolTip(button44, "リストの全項目を削除します。");
+            button44.UseVisualStyleBackColor = true;
+            button44.Click += button44_Click;
             // 
             // contextMenuStrip2
             // 
@@ -2032,11 +3034,66 @@ namespace TestApp
             // 
             toolTip1.Popup += toolTip1_Popup;
             // 
+            // toolStrip1
+            // 
+            toolStrip1.ImageScalingSize = new Size(24, 24);
+            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripLabel1 });
+            toolStrip1.Location = new Point(0, 0);
+            toolStrip1.Name = "toolStrip1";
+            toolStrip1.Size = new Size(2022, 35);
+            toolStrip1.TabIndex = 15;
+            toolStrip1.Text = "toolStrip1";
+            // 
+            // toolStripLabel1
+            // 
+            toolStripLabel1.DropDownItems.AddRange(new ToolStripItem[] { 設定ToolStripMenuItem1, 設定ファイルを開くToolStripMenuItem });
+            toolStripLabel1.Name = "toolStripLabel1";
+            toolStripLabel1.Size = new Size(66, 30);
+            toolStripLabel1.Text = "全般";
+            // 
+            // 設定ToolStripMenuItem1
+            // 
+            設定ToolStripMenuItem1.Name = "設定ToolStripMenuItem1";
+            設定ToolStripMenuItem1.Size = new Size(276, 34);
+            設定ToolStripMenuItem1.Text = "設定...";
+            設定ToolStripMenuItem1.Click += 設定ToolStripMenuItem1_Click;
+            // 
+            // 設定ファイルを開くToolStripMenuItem
+            // 
+            設定ファイルを開くToolStripMenuItem.Name = "設定ファイルを開くToolStripMenuItem";
+            設定ファイルを開くToolStripMenuItem.Size = new Size(276, 34);
+            設定ファイルを開くToolStripMenuItem.Text = "設定ファイルを開く";
+            設定ファイルを開くToolStripMenuItem.Click += 設定ファイルを開くToolStripMenuItem_Click;
+            // 
+            // statusStrip1
+            // 
+            statusStrip1.ImageScalingSize = new Size(24, 24);
+            statusStrip1.Items.AddRange(new ToolStripItem[] { toolStripStatusLabel1 });
+            statusStrip1.Location = new Point(0, 750);
+            statusStrip1.Name = "statusStrip1";
+            statusStrip1.Size = new Size(2022, 33);
+            statusStrip1.TabIndex = 16;
+            statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabel1
+            // 
+            toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            toolStripStatusLabel1.Size = new Size(197, 26);
+            toolStripStatusLabel1.Text = "toolStripStatusLabel1";
+            // 
+            // imageList1
+            // 
+            imageList1.ColorDepth = ColorDepth.Depth32Bit;
+            imageList1.ImageSize = new Size(16, 16);
+            imageList1.TransparentColor = Color.Transparent;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(11F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1791, 753);
+            ClientSize = new Size(2022, 783);
+            Controls.Add(statusStrip1);
+            Controls.Add(toolStrip1);
             Controls.Add(tabControl1);
             Font = new Font("Mgen+ 2p regular", 9F, FontStyle.Regular, GraphicsUnit.Point, 128);
             Icon = (Icon)resources.GetObject("$this.Icon");
@@ -2058,9 +3115,27 @@ namespace TestApp
             ((ISupportInitialize)numericUpDown1).EndInit();
             tabPage2.ResumeLayout(false);
             tabPage2.PerformLayout();
+            ((ISupportInitialize)numericUpDown2).EndInit();
             ((ISupportInitialize)webView21).EndInit();
+            tabPage5.ResumeLayout(false);
+            tabPage5.PerformLayout();
+            tabPage7.ResumeLayout(false);
+            tabPage7.PerformLayout();
+            groupBox4.ResumeLayout(false);
+            groupBox3.ResumeLayout(false);
+            groupBox3.PerformLayout();
+            tabPage8.ResumeLayout(false);
+            tabPage8.PerformLayout();
+            groupBox6.ResumeLayout(false);
+            groupBox6.PerformLayout();
+            groupBox7.ResumeLayout(false);
             contextMenuStrip2.ResumeLayout(false);
+            toolStrip1.ResumeLayout(false);
+            toolStrip1.PerformLayout();
+            statusStrip1.ResumeLayout(false);
+            statusStrip1.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -2222,5 +3297,93 @@ namespace TestApp
         private Label label20;
         private TextBox textBox4;
         private TextBox textBox3;
+        private TabPage tabPage5;
+        private Label label81;
+        private ComboBox comboBox3;
+        private Button button17;
+        private Button button16;
+        private Label label23;
+        private Label label82;
+        private Button button18;
+        private Button button23;
+        private Button button22;
+        private Button button21;
+        private Button button20;
+        private Button button19;
+        private TabPage tabPage7;
+        private Label label83;
+        private Button button24;
+        private ListBox listBox2;
+        private TextBox textBox6;
+        private TextBox textBox5;
+        private Label label84;
+        private Button button25;
+        private Button button26;
+        private Button button28;
+        private Button button27;
+        private Button button29;
+        private Button button31;
+        private GroupBox groupBox3;
+        private Label label87;
+        private Label label86;
+        private Label label85;
+        private Button button30;
+        private GroupBox groupBox4;
+        private Button button34;
+        private Button button33;
+        private Button button32;
+        private Label label88;
+        private Button button35;
+        private GroupBox groupBox5;
+        private Label label89;
+        private Button button36;
+        private Label label90;
+        private NumericUpDown numericUpDown2;
+        private TabPage tabPage8;
+        private GroupBox groupBox6;
+        private Label label92;
+        private Button button37;
+        private TextBox textBox8;
+        private Label label93;
+        private Label label91;
+        private TextBox textBox7;
+        private Label label94;
+        private Label label95;
+        private Label label96;
+        private Button button45;
+        private Button button46;
+        private Button button47;
+        private GroupBox groupBox7;
+        private Button button49;
+        private Button button40;
+        private ListBox listBox3;
+        private Button button41;
+        private Button button42;
+        private Button button48;
+        private Button button43;
+        private Button button44;
+        private ToolStrip toolStrip1;
+        private ToolStripDropDownButton toolStripLabel1;
+        private ToolStripMenuItem 設定ToolStripMenuItem1;
+        private Label label98;
+        private Label label97;
+        private TextBox textBox9;
+        private DateTimePicker dateTimePicker1;
+        private Label label99;
+        private TextBox textBox10;
+        private Button button38;
+        private ToolStripMenuItem 設定ファイルを開くToolStripMenuItem;
+        private Button button39;
+        private Button button50;
+        private StatusStrip statusStrip1;
+        private ImageList imageList1;
+        private static ToolStripStatusLabel toolStripStatusLabel1;
+        private static ComboBox comboBox2;
+        private static ProgressBar progressBar1;
+        private static Label label24;
+        private static Label label25;
+        private static Label label28;
+        private static Label label27;
+        private static Label label26;
     }
 }

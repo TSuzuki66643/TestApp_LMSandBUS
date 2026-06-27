@@ -652,8 +652,9 @@
             // 
             // comboBox5
             // 
+            comboBox5.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBox5.FormattingEnabled = true;
-            comboBox5.Items.AddRange(new object[] { "BusUtility", "LMSJumper", "Readme" });
+            comboBox5.Items.AddRange(new object[] { "BusUtility", "LMSJumper", "FileClipper", "TextMemo", "Web (beta)" });
             comboBox5.Location = new Point(245, 37);
             comboBox5.Name = "comboBox5";
             comboBox5.Size = new Size(182, 34);
